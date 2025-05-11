@@ -1,0 +1,45 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Or your default branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Allow write access to checkout and push to gh-pages
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Use a Node version compatible with your Astro project
+
+      - name: Install dependencies
+        run: npm ci # Use 'npm ci' for cleaner installs in CI, using package-lock.json
+
+      - name: Build project
+        run: npm run build
+        env:
+          # Ensure your Astro config's `site` and `base` are correctly set for GitHub Pages
+          # If you have a custom domain, `site` should be your custom domain.
+          # `base` should be '/' if deploying to the root of the domain/subdomain,
+          # or '/<repository-name>/' if deploying to a GitHub Pages subpath.
+          # Your astro.config.mjs already has these set correctly for a custom domain.
+          CI: true # Often used by build tools
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          # cname: www.agrilacombe.com # Astro handles CNAME file automatically if placed in public/
+          # If your Astro config correctly places the CNAME file in the dist output,
+          # this explicit cname option in the action might not be necessary,
+          # but it doesn't hurt to have it as a safeguard if it matches your domain.
+          # For now, relying on Astro's CNAME handling from the public/ directory.

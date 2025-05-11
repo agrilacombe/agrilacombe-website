@@ -1,0 +1,171 @@
+---
+// src/pages/[lang]/index.astro
+import { getEntry } from 'astro:content';
+import type { Language } from '../../utils/i18n';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { t, createLocalizedPath } from '../../utils/i18n';
+import { Icon } from 'astro-icon/components';
+
+export async function getStaticPaths() {
+  const languages: Language[] = ['en', 'es', 'fr'];
+  const paths = await Promise.all(
+    languages.map(async (lang) => {
+      const entry = await getEntry(lang, 'index');
+      if (!entry) {
+        console.warn(`No 'index.mdx' found for language: ${lang} in src/pages/[lang]/index.astro. Skipping path generation.`);
+        return null;
+      }
+      return {
+        params: { lang: lang },
+        props: { entry },
+      };
+    })
+  );
+  return paths.filter(path => path !== null);
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+const currentLang = Astro.params.lang as Language;
+const frontmatter = entry.data;
+
+const siteURLForCanonical = Astro.site ? Astro.site.toString() : 'http://localhost:4321'; // Fallback for dev
+const canonicalURL = new URL(Astro.url.pathname, siteURLForCanonical).toString();
+
+const siteBaseForPaths = import.meta.env.BASE_URL;
+
+const heroData = frontmatter.hero;
+const commitmentsData = frontmatter.commitments;
+const productHighlightsData = frontmatter.product_highlights;
+---
+<BaseLayout
+  title={frontmatter.metaTitle || frontmatter.title}
+  description={frontmatter.metaDescription || frontmatter.description}
+  lang={currentLang}
+  currentPath={Astro.url.pathname}
+  siteBase={siteBaseForPaths}
+  canonicalURL={canonicalURL}
+>
+  <!-- Hero Section -->
+  {heroData && (
+    <section
+      id="hero"
+      class:list={[
+        "hero-section",
+        "section", // For GSAP animation
+        "bg-cover",
+        "bg-center",
+        "text-white",
+        "relative",
+        "min-h-[80vh]", // Ensure substantial height
+        "flex",
+        "items-center",
+        "justify-center",
+        "py-12" // Add some padding
+      ]}
+      style={heroData.backgroundImage ? `background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)), url('${heroData.backgroundImage}');` : 'background-color: #15803d;'} /* Darker green as fallback */
+    >
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        {/* Optional: Agri Lacombe logo in hero as per old index.html, if desired */}
+        {/* <img src="/images/agrilacombe_logo.png" alt={t('site.title', currentLang)} class="mx-auto mb-6 sm:mb-8 h-24 sm:h-32 w-auto gsap-fade-in-up" data-gsap-delay="0.1" /> */}
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight gsap-fade-in-up" data-gsap-delay="0.2">{t(heroData.tagline, currentLang) || heroData.tagline}</h1>
+        <p class="text-lg sm:text-xl lg:text-2xl mb-10 max-w-3xl mx-auto gsap-fade-in-up" data-gsap-delay="0.4">{t(heroData.subtitle, currentLang) || heroData.subtitle}</p>
+        {heroData.buttonText && heroData.buttonLink && (
+          <a href={heroData.buttonLink.startsWith('#') ? heroData.buttonLink : createLocalizedPath(heroData.buttonLink, currentLang, siteBaseConfig)}
+             class="bg-yellow-400 hover:bg-yellow-500 text-green-900 font-semibold py-3 px-10 rounded-lg text-lg sm:text-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 gsap-fade-in-up" data-gsap-delay="0.6">
+            {t(heroData.buttonText, currentLang) || heroData.buttonText}
+          </a>
+        )}
+      </div>
+    </section>
+  )}
+
+  <!-- Main Content from MDX (e.g., Welcome message / Story Intro) -->
+  <article id="welcome-story" class="prose prose-lg prose-emerald mx-auto py-12 px-6 section text-gray-700">
+    <Content />
+  </article>
+
+  <!-- Commitments Section -->
+  {commitmentsData && commitmentsData.length > 0 && (
+    <section id="commitments" class="py-16 bg-gray-100 section">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl lg:text-4xl font-bold text-center text-gray-800 mb-12 lg:mb-16 gsap-fade-in-up">{t('commitments.title', currentLang)}</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+          {commitmentsData.map((commitment, index) => (
+            <div class="commitment-item bg-white p-6 sm:p-8 rounded-xl shadow-lg text-center transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-1 gsap-fade-in-up" data-gsap-delay={index * 0.15}>
+              {commitment.icon && (
+                <div class="text-green-500 mb-4">
+                  <Icon name={commitment.icon} class="w-12 h-12 mx-auto" />
+                </div>
+              )}
+              <h3 class="text-xl lg:text-2xl font-semibold text-gray-900 mb-3">{t(commitment.titleKey, currentLang)}</h3>
+              <p class="text-gray-600 text-sm lg:text-base">{t(commitment.textKey, currentLang)}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Product Highlights Section -->
+  {productHighlightsData && productHighlightsData.length > 0 && (
+    <section id="products" class="py-16 section">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl lg:text-4xl font-bold text-center text-gray-800 mb-12 lg:mb-16 gsap-fade-in-up">{t('products.title', currentLang)}</h2>
+        <div class="grid md:grid-cols-2 gap-10 lg:gap-16 items-stretch">
+          {productHighlightsData.map((product, index) => (
+            <article class="product-highlight flex flex-col bg-white rounded-lg shadow-xl overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-1 gsap-fade-in-up" data-gsap-delay={index * 0.2}>
+              {product.image && <img src={product.image} alt={t(product.titleKey, currentLang)} class="w-full h-64 object-cover"/>}
+              <div class="p-6 flex flex-col flex-grow">
+                <h3 class="text-2xl lg:text-3xl font-semibold text-green-700 mb-3">{t(product.titleKey, currentLang)}</h3>
+                <p class="text-gray-700 leading-relaxed mb-3 flex-grow">{t(product.textKey, currentLang)}</p>
+                {product.availabilityKey && <p class="text-sm text-green-600 font-medium mt-auto pt-2">{t(product.availabilityKey, currentLang)}</p>}
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-16 lg:py-24 bg-gray-200 section">
+    <div class="container mx-auto px-6 text-center max-w-3xl">
+      <h2 class="text-3xl lg:text-4xl font-bold text-gray-800 mb-6 gsap-fade-in-up" data-gsap-delay="0">
+        {t('contact.title', currentLang)}
+      </h2>
+      <p class="text-lg text-gray-700 mb-8 leading-relaxed gsap-fade-in-up" data-gsap-delay="0.1">
+        {t('contact.intro', currentLang)}
+      </p>
+      
+      <div class="bg-white p-8 sm:p-10 rounded-xl shadow-xl gsap-fade-in-up" data-gsap-delay="0.2">
+        <h3 class="text-2xl font-semibold text-green-700 mb-4">{t('contact.email.label', currentLang)}</h3>
+        <a href={`mailto:${t('contact.email.address', currentLang)}`} class="text-xl text-gray-900 hover:text-green-600 transition-colors duration-300 break-all">
+          {t('contact.email.address', currentLang)}
+        </a>
+        <p class="text-gray-600 mt-6 text-sm leading-relaxed">
+          {t('contact.wholesale.cta', currentLang)}
+        </p>
+        {/* Removed response time paragraph based on user request in previous turn */}
+      </div>
+
+      {/* Placeholder for a more complex form if needed in the future */}
+      {/* 
+      <form id="wholesale-contact-form" class="mt-12 space-y-6 bg-white p-8 rounded-lg shadow-lg text-left">
+        <div>
+          <label for="contact-name" class="block text-sm font-medium text-gray-700">{t('contact.form.name', currentLang)}</label>
+          <input type="text" id="contact-name" name="name" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm">
+        </div>
+        // Add more form fields here: company, email, phone, message
+        <div>
+          <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+            {t('contact.form.submit', currentLang)}
+          </button>
+        </div>
+      </form>
+      <p id="form-status" class="mt-4 text-center text-sm"></p> 
+      */}
+    </div>
+  </section>
+</BaseLayout>

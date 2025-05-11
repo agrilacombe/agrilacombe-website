@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom global styles */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  @apply font-sans text-gray-700 bg-gray-50; /* Using Tailwind's font-sans and color palette */
+}
+
+/* Example: Global link styling if needed, though Tailwind's approach is utility-first */
+/*
+a {
+  @apply text-green-600 hover:text-green-700;
+}
+*/
+
+/* Hero background placeholder - will be set by components */
+.hero-bg-placeholder {
+  background-image: url('https://placehold.co/1920x1080/66BB6A/FFFFFF/png?text=Hero+Background');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Active state for language toggle buttons */
+.lang-toggle a.active {
+  @apply bg-green-600 text-white;
+}
+
+/* For GSAP initial states if not handled by JS directly on elements */
+/*
+.gsap-fade-in {
+  opacity: 0;
+}
+.gsap-fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+}
+*/
+
+/* Basic styling for prose content if not using Tailwind Typography extensively or needing overrides */
+.prose-custom {
+  @apply text-gray-700;
+}
+.prose-custom h1, .prose-custom h2, .prose-custom h3, .prose-custom h4 {
+  @apply text-gray-800;
+}
+.prose-custom ul {
+  @apply list-disc list-inside;
+}
+
+/* FAQ Accordion specific global styles if needed, though components might manage this */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out, padding-top 0.5s ease-in-out, padding-bottom 0.5s ease-in-out;
+}
+.faq-answer.open {
+  /* max-height will be set by JS or component logic */
+  @apply pt-3 pb-1; /* Corresponds to mt-3 and some bottom padding */
+}
+.faq-question svg.rotate-180 {
+  transform: rotate(180deg);
+}
+.faq-question svg {
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Ensure any custom @layer components or utilities are defined here or in tailwind.config.js */

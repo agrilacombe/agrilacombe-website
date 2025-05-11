@@ -1,0 +1,268 @@
+---
+// src/layouts/BaseLayout.astro
+import { t, createLocalizedPath, getLocalizedPathForSwitcher } from '../utils/i18n';
+import type { Language } from '../utils/i18n';
+import { Icon } from 'astro-icon/components'; // For menu icon
+
+export interface Props {
+  title: string;
+  description: string;
+  lang: Language;
+  currentPath: string; // Astro.url.pathname
+  siteBase: string; 
+  canonicalURL?: string;
+}
+
+const { title, description, lang, currentPath, siteBase, canonicalURL } = Astro.props;
+
+const otherLanguages = (['en', 'es', 'fr'] as Language[]).filter(l => l !== lang);
+
+// Determine if the current page is the effective homepage for the current language
+// The homepage path for 'en' might be just the siteBase, while for others it's siteBase + lang + '/'
+// Given the redirect from "/" to "/en/", currentPath for English homepage should be siteBase + "en/"
+let isEffectivelyHomepage = false;
+const homePathForLang = createLocalizedPath('', lang, siteBase); // This will be /en/, /es/, /fr/ (or base + /en/ etc.)
+if (currentPath === homePathForLang || currentPath === `${homePathForLang}index.astro`) { // Comparing against resolved path
+    isEffectivelyHomepage = true;
+}
+
+
+// Define navigation links
+// 'pagePath' is for actual page navigation if not on homepage.
+// 'anchor' is for scrolling on the homepage IF that section exists there.
+// 'isHomepageSection' flags if this nav item primarily refers to a section on the homepage.
+const navLinks = [
+  { key: 'nav.home', pagePath: '', anchor: '#hero', isHomepageSection: true },
+  { key: 'nav.story', pagePath: 'story', anchor: '#welcome-story', isHomepageSection: true }, // Assuming a summary on home, full page at /story
+  { key: 'nav.products', pagePath: 'products', anchor: '#products', isHomepageSection: true }, // Assuming a summary on home, full page at /products
+  { key: 'nav.contact', pagePath: 'contact', anchor: '#contact', isHomepageSection: true }, // Assuming contact section on home, could also be a full page
+  // Example for a link that is ONLY a separate page:
+  // { key: 'nav.faq', pagePath: 'faq', anchor: '', isHomepageSection: false },
+];
+
+---
+<!DOCTYPE html>
+<html lang={lang} class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  {canonicalURL && <link rel="canonical" href={canonicalURL} />}
+
+  {/* Favicons - Assuming these are in public/images/ */}
+  <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+  <link rel="icon" href="/images/favicon.ico" sizes="any"> {/* Fallback for older browsers */}
+
+  <link rel="stylesheet" href="/src/styles/global.css">
+  
+</head>
+<body class="bg-gray-50 text-gray-700 antialiased">
+  <header id="header" class="bg-white/90 backdrop-blur-md shadow-md fixed w-full z-50 top-0 transition-shadow duration-300">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center">
+          <a href={createLocalizedPath('', lang, siteBase)} class="flex items-center space-x-2 rtl:space-x-reverse">
+            {/* Ensure agrilacombe_logo.png is in public/images/ */}
+            <img src="/images/agrilacombe_logo.png" class="h-8 sm:h-10 w-auto" alt={t('site.title', lang)} />
+            <span class="self-center text-xl sm:text-2xl font-semibold whitespace-nowrap text-green-700">{t('site.title', lang).split(' - ')[0]}</span>
+          </a>
+        </div>
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-baseline space-x-1 lg:space-x-2">
+            {navLinks.map(link => {
+              const pageLink = createLocalizedPath(link.pagePath, lang, siteBase);
+              // If on homepage AND this link is primarily a homepage section, use anchor. Otherwise, use page path.
+              const href = isEffectivelyHomepage && link.isHomepageSection && link.anchor ? link.anchor : pageLink;
+              // Active state: Check if current path matches the full page path for this link.
+              // For "Home", active if it's the effective homepage.
+              const isActive = (link.key === 'nav.home' && isEffectivelyHomepage) || currentPath === pageLink;
+
+              return (
+                <a 
+                  href={href} 
+                  class:list={[
+                    "px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-green-600 hover:bg-green-100 focus:bg-green-100 focus:text-green-700",
+                    { "bg-green-100 text-green-700 font-semibold": isActive }
+                  ]}
+                >
+                  {t(link.key, lang)}
+                </a>
+              );
+            })}
+          </div>
+        </div>
+        {/* Language Switcher and Mobile Menu Button */}
+         <div class="flex items-center">
+          <div class="lang-toggle hidden md:flex items-center">
+            {otherLanguages.map(otherLang => (
+              <a
+                href={getLocalizedPathForSwitcher(currentPath, otherLang, lang, siteBase)}
+                class="ml-1 px-2 py-1 border border-green-600 text-green-600 rounded-md text-xs font-medium hover:bg-green-600 hover:text-white focus:bg-green-600 focus:text-white transition-colors"
+                title={t(`lang.switch.${otherLang}`, lang)}
+              >
+                {otherLang.toUpperCase()}
+              </a>
+            ))}
+          </div>
+          <div class="-mr-2 flex md:hidden">
+            <button type="button" id="mobile-menu-button" class="bg-white inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-green-600 hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500" aria-controls="mobile-menu" aria-expanded="false">
+              <span class="sr-only">{t('mobileMenu.open', lang)}</span>
+              {/* Ensure astro-icon integration provides these icons, or use SVGs directly */}
+              <Icon name="tabler:menu-2" class="block h-6 w-6 icon-menu" aria-hidden="true" />
+              <Icon name="tabler:x" class="hidden h-6 w-6 icon-close" aria-hidden="true" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Mobile menu, show/hide based on menu state. */}
+    <div class="md:hidden hidden" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200 shadow-lg">
+        {navLinks.map(link => {
+          const pageLink = createLocalizedPath(link.pagePath, lang, siteBase);
+          const href = isEffectivelyHomepage && link.isHomepageSection && link.anchor ? link.anchor : pageLink;
+          const isActive = (link.key === 'nav.home' && isEffectivelyHomepage) || currentPath === pageLink;
+          return (
+            <a 
+              href={href} 
+              class:list={[
+                "block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-green-600 hover:bg-green-100 focus:bg-green-100 focus:text-green-700",
+                { "bg-green-100 text-green-700 font-semibold": isActive }
+              ]}
+            >
+              {t(link.key, lang)}
+            </a>
+          );
+        })}
+        <div class="border-t border-gray-200 pt-3 mt-3">
+          {otherLanguages.map(otherLang => (
+            <a
+              href={getLocalizedPathForSwitcher(currentPath, otherLang, lang, siteBase)}
+              class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-green-600 hover:bg-green-100"
+              title={t(`lang.switch.${otherLang}`, lang)}
+            >
+              {t(`lang.switch.${otherLang}`, lang)} ({otherLang.toUpperCase()})
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-16"> {/* Add padding-top equal to header height */}
+    <slot /> {/* Page content will be injected here */}
+  </main>
+
+  <footer class="bg-gray-800 text-gray-400 py-10 sm:py-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-sm">&copy; {new Date().getFullYear()} {t('footer.copyright', lang)}</p>
+      <p class="text-xs mt-1">{t('footer.tagline', lang)}</p>
+    </div>
+  </footer>
+
+  <script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenuButton && mobileMenu) {
+      const menuIcon = mobileMenuButton.querySelector('.icon-menu');
+      const closeIcon = mobileMenuButton.querySelector('.icon-close');
+
+      mobileMenuButton.addEventListener('click', () => {
+        const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true' || false;
+        mobileMenuButton.setAttribute('aria-expanded', String(!expanded));
+        mobileMenu.classList.toggle('hidden');
+        if (menuIcon) menuIcon.classList.toggle('hidden');
+        if (closeIcon) closeIcon.classList.toggle('hidden');
+      });
+
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenuButton.setAttribute('aria-expanded', 'false');
+          mobileMenu.classList.add('hidden');
+          if (menuIcon) menuIcon.classList.remove('hidden');
+          if (closeIcon) closeIcon.classList.add('hidden');
+        });
+      });
+    }
+
+    function initGsapAnimations() {
+      if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.utils.toArray(".gsap-fade-in-up").forEach((element) => {
+          let delay = 0;
+          const existingDelay = element.style.animationDelay;
+          if (existingDelay && existingDelay.endsWith('s')) {
+              delay = parseFloat(existingDelay);
+          } else if (element.dataset.gsapDelay) { // Allow data-gsap-delay attribute
+              delay = parseFloat(element.dataset.gsapDelay);
+          }
+          
+          gsap.from(element, {
+            opacity: 0,
+            y: 50,
+            duration: 0.8,
+            delay: delay,
+            ease: "power2.out",
+            scrollTrigger: { // Also make these elements trigger on scroll if they are part of '.section'
+              trigger: element.closest('.section') || element, // Trigger based on parent section or self
+              start: "top 85%",
+              toggleActions: "play none none none",
+            }
+          });
+        });
+        
+        gsap.utils.toArray('.section:not(.hero-section)').forEach(section => { // Exclude hero if it has its own animation
+          gsap.from(section, {
+            opacity: 0,
+            y: 50, 
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: section,
+              start: "top 85%", 
+              toggleActions: "play none none none",
+            }
+          });
+        });
+
+        const header = document.getElementById('header');
+        if (header) {
+            ScrollTrigger.create({
+                trigger: "body",
+                start: "top -50px",
+                onUpdate: self => {
+                    if (self.direction === -1 && self.scroll() < 50) {
+                        header.classList.remove("shadow-xl");
+                        header.classList.add("shadow-md");
+                    } else if (self.direction === 1 && self.scroll() > 50) {
+                        header.classList.remove("shadow-md");
+                        header.classList.add("shadow-xl");
+                    } else if (self.scroll() <= 50) {
+                         header.classList.remove("shadow-xl");
+                         header.classList.add("shadow-md");
+                    }
+                },
+            });
+        }
+      } else {
+        console.warn('GSAP or ScrollTrigger not loaded. Animations will not run.');
+      }
+    }
+    
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initGsapAnimations);
+    } else {
+        initGsapAnimations();
+    }
+  </script>
+</body>
+</html>

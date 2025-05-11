@@ -1,0 +1,58 @@
+# Astro
+.astro/
+dist/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Environment Variables
+.env
+.env.*
+!.env.example
+.env.test
+
+# Logs
+logs
+*.log
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor and IDE specific files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# Test & Coverage
+coverage/
+.nyc_output/
+
+# Build output (if any other tools are used outside Astro's dist)
+build/
+out/
+
+# Temporary files
+tmp/
+
+# Netlify
+.netlify
+
+# Vercel
+.vercel
