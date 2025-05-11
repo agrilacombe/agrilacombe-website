@@ -1,0 +1,97 @@
+backend:
+  name: git-gateway
+  branch: main # Or your default branch
+
+media_folder: "public/images/uploads" # Location where files will be stored
+public_folder: "/images/uploads" # The src attribute for uploaded media
+
+# English Content Collections
+# For a more robust setup with i18n in Decap/Netlify CMS,
+# you might structure collections differently or use specific i18n features.
+# This is a basic example showing how to edit content in /src/content/en/
+
+collections:
+  - name: "en_pages"
+    label: "English Pages"
+    label_singular: "English Page"
+    folder: "src/content/en"
+    create: true
+    slug: "{{slug}}" # Filename will be the slug
+    extension: "mdx"
+    format: "frontmatter"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Navigation Title (Optional)", name: "navTitle", widget: "string", required: false }
+      - { label: "Description", name: "description", widget: "text" }
+      # Example for Hero section content within index.mdx
+      - label: "Hero Section"
+        name: "hero"
+        widget: "object"
+        required: false
+        condition: # Only show for index.mdx
+          field: "slug"
+          value: "index"
+        fields:
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "string" }
+          - { label: "Button Text", name: "buttonText", widget: "string" }
+          - { label: "Button Link (relative to language base)", name: "buttonLink", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "es_pages"
+    label: "Spanish Pages"
+    label_singular: "Spanish Page"
+    folder: "src/content/es"
+    create: true
+    slug: "{{slug}}"
+    extension: "mdx"
+    format: "frontmatter"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Navigation Title (Optional)", name: "navTitle", widget: "string", required: false }
+      - { label: "Description", name: "description", widget: "text" }
+      - label: "Hero Section" # Assuming same hero structure
+        name: "hero"
+        widget: "object"
+        required: false
+        condition:
+          field: "slug"
+          value: "index"
+        fields:
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "string" }
+          - { label: "Button Text", name: "buttonText", widget: "string" }
+          - { label: "Button Link (relative to language base)", name: "buttonLink", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "fr_pages"
+    label: "French Pages"
+    label_singular: "French Page"
+    folder: "src/content/fr"
+    create: true
+    slug: "{{slug}}"
+    extension: "mdx"
+    format: "frontmatter"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Navigation Title (Optional)", name: "navTitle", widget: "string", required: false }
+      - { label: "Description", name: "description", widget: "text" }
+      - label: "Hero Section" # Assuming same hero structure
+        name: "hero"
+        widget: "object"
+        required: false
+        condition:
+          field: "slug"
+          value: "index"
+        fields:
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "string" }
+          - { label: "Button Text", name: "buttonText", widget: "string" }
+          - { label: "Button Link (relative to language base)", name: "buttonLink", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+# This is a very basic setup. For a full i18n solution with Decap CMS,
+# you would typically use the `i18n` feature for collections.
+# See: https://decapcms.org/docs/configuration-options/#i18n
+# For example, you could have one "pages" collection and enable i18n on fields.
+# Or, use multiple collection files for better organization if i18n structure is complex.
