@@ -82,32 +82,34 @@ const productHighlightsData = frontmatter.product_highlights;
   )}
 
   <!-- Main Content from MDX (e.g., Welcome message / Story Intro) -->
-  <article id="welcome-story" class="container mx-auto py-12 px-6 section" style="scroll-margin-top: 4rem;">
-    <div class="flex flex-col md:flex-row items-center gap-8 lg:gap-12">
-      <!-- Logo Column -->
-      <div class="w-full md:w-2/5 flex justify-center items-center">
-        <div class="relative w-80 h-80 md:w-full md:max-w-sm flex items-center justify-center">
-          <img
-            src="/images/agrilacombe_logo.png"
-            alt="Agri Lacombe Logo"
-            class="object-contain w-full h-full gsap-fade-in-up"
-            data-gsap-delay="0.1"
-          />
+  <div id="welcome-story" class="bg-[#f5f5ea] py-12 section" style="scroll-margin-top: 4rem;">
+    <article class="container mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center gap-8 lg:gap-12">
+        <!-- Logo Column -->
+        <div class="w-full md:w-2/5 flex justify-center items-center">
+          <div class="relative w-80 h-80 md:w-full md:max-w-sm flex items-center justify-center">
+            <img
+              src="/images/agrilacombe_logo.png"
+              alt="Agri Lacombe Logo"
+              class="object-contain w-full h-full gsap-fade-in-up"
+              data-gsap-delay="0.1"
+            />
+          </div>
+        </div>
+        
+        <!-- Content Column -->
+        <div class="w-full md:w-3/5 flex items-center gsap-fade-in-up" data-gsap-delay="0.3">
+          <div class="prose prose-lg prose-emerald text-gray-700">
+            <Content />
+          </div>
         </div>
       </div>
-      
-      <!-- Content Column -->
-      <div class="w-full md:w-3/5 flex items-center gsap-fade-in-up" data-gsap-delay="0.3">
-        <div class="prose prose-lg prose-emerald text-gray-700">
-          <Content />
-        </div>
-      </div>
-    </div>
-  </article>
+    </article>
+  </div>
 
   <!-- Commitments Section -->
   {commitmentsData && commitmentsData.length > 0 && (
-    <section id="commitments" class="py-16 bg-gray-100 section" style="scroll-margin-top: 4rem;">
+    <section id="commitments" class="py-16 bg-gray-300 section" style="scroll-margin-top: 4rem;">
       <div class="container mx-auto px-6">
         <h2 class="text-3xl lg:text-4xl font-bold text-center text-gray-800 mb-12 lg:mb-16 gsap-fade-in-up">{t('commitments.title', currentLang)}</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
@@ -129,7 +131,7 @@ const productHighlightsData = frontmatter.product_highlights;
 
   <!-- Product Highlights Section -->
   {productHighlightsData && productHighlightsData.length > 0 && (
-    <section id="products" class="py-16 section" style="scroll-margin-top: 4rem;">
+    <section id="products" class="py-16 section bg-white" style="scroll-margin-top: 4rem;">
       <div class="container mx-auto px-6">
         <h2 class="text-3xl lg:text-4xl font-bold text-center text-gray-800 mb-12 lg:mb-16 gsap-fade-in-up">{t('products.title', currentLang)}</h2>
         <div class="grid md:grid-cols-2 gap-10 lg:gap-16 items-stretch">
@@ -149,7 +151,7 @@ const productHighlightsData = frontmatter.product_highlights;
   )}
 
   <!-- Contact Section -->
-  <section id="contact" class="py-16 lg:py-24 bg-gray-200 section" style="scroll-margin-top: 4rem;">
+  <section id="contact" class="py-16 lg:py-24 bg-[#f5f5ea] section" style="scroll-margin-top: 4rem;">
     <div class="container mx-auto px-6 text-center max-w-3xl">
       <h2 class="text-3xl lg:text-4xl font-bold text-gray-800 mb-6 gsap-fade-in-up" data-gsap-delay="0">
         {t('contact.title', currentLang)}

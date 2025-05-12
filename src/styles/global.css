@@ -11,7 +11,21 @@ html {
 }
 
 body {
-  @apply font-sans text-gray-700 bg-gray-50; /* Using Tailwind's font-sans and color palette */
+  @apply font-sans text-gray-700 bg-[#f5f5ea]; /* Using Tailwind's font-sans and color palette */
+}
+
+/* Ensure section backgrounds are visible during animations */
+.section {
+  position: relative;
+  z-index: 1;
+}
+
+#commitments {
+  @apply bg-gray-300;
+}
+
+#products {
+  @apply bg-white;
 }
 
 /* Example: Global link styling if needed, though Tailwind's approach is utility-first */
@@ -30,7 +44,7 @@ a {
 
 /* Active state for language toggle buttons */
 .lang-toggle a.active {
-  @apply bg-green-600 text-white;
+  @apply bg-green-700 text-white;
 }
 
 /* For GSAP initial states if not handled by JS directly on elements */
