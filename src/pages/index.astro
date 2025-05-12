@@ -1,0 +1,65 @@
+---
+// src/pages/index.astro
+// This file handles the root URL (agrilacombe.com) and instantly redirects to the French version
+// without showing the default Astro redirect message
+
+// Import necessary utilities
+import { getEntry } from 'astro:content';
+
+// Get the site URL for canonical references
+const siteURL = Astro.site ? Astro.site.toString() : 'https://www.agrilacombe.com';
+const frenchURL = new URL('/fr/', siteURL).toString();
+
+// Set the canonical URL to the French version for SEO
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Instant redirect to French version -->
+  <meta http-equiv="refresh" content="0;url=/fr/">
+  
+  <!-- SEO: Set canonical URL to French version to avoid duplicate content issues -->
+  <link rel="canonical" href={frenchURL}>
+  
+  <!-- Fallback title in case the redirect takes a moment -->
+  <title>Agri Lacombe</title>
+  
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f5f5f5;
+    }
+    .redirect-message {
+      text-align: center;
+      opacity: 0; /* Hidden by default */
+      animation: fadeIn 0.5s ease-in forwards;
+      animation-delay: 0.2s; /* Only show if redirect takes longer than expected */
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <!-- This content will only be visible if the redirect takes longer than expected -->
+  <div class="redirect-message">
+    <img src="/images/agrilacombe_logo.png" alt="Agri Lacombe" style="max-width: 200px;">
+    <p>Chargement...</p>
+  </div>
+
+  <script>
+    // JavaScript fallback redirect in case meta refresh doesn't work
+    window.location.href = "/fr/";
+  </script>
+</body>
+</html>

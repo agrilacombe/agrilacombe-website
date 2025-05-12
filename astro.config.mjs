@@ -21,8 +21,5 @@ export default defineConfig({
   base: `/`, // Site will be at the root of the custom domain
   output: "static", // Ensures static build for GitHub Pages
   trailingSlash: "always", // Or 'always', depending on preference
-  // Redirect root to French version by default
-  redirects: {
-    "/": "/fr/",
-  },
+  // Root URL handled by custom index.astro with instant redirect to French version
 });
