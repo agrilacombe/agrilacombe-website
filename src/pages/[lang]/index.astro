@@ -64,7 +64,7 @@ const productHighlightsData = frontmatter.product_highlights;
         "justify-center",
         "py-12" // Add some padding
       ]}
-      style={heroData.backgroundImage ? `background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)), url('${heroData.backgroundImage}');` : 'background-color: #15803d;'} /* Darker green as fallback */
+      style={heroData.backgroundImage ? `scroll-margin-top: 4rem; background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)), url('${heroData.backgroundImage}');` : 'scroll-margin-top: 4rem; background-color: #15803d;'} /* Darker green as fallback */
     >
       <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         {/* Optional: Agri Lacombe logo in hero as per old index.html, if desired */}
@@ -82,7 +82,7 @@ const productHighlightsData = frontmatter.product_highlights;
   )}
 
   <!-- Main Content from MDX (e.g., Welcome message / Story Intro) -->
-  <article id="welcome-story" class="container mx-auto py-12 px-6 section">
+  <article id="welcome-story" class="container mx-auto py-12 px-6 section" style="scroll-margin-top: 4rem;">
     <div class="flex flex-col md:flex-row items-center gap-8 lg:gap-12">
       <!-- Logo Column -->
       <div class="w-full md:w-2/5 flex justify-center items-center">
@@ -107,7 +107,7 @@ const productHighlightsData = frontmatter.product_highlights;
 
   <!-- Commitments Section -->
   {commitmentsData && commitmentsData.length > 0 && (
-    <section id="commitments" class="py-16 bg-gray-100 section">
+    <section id="commitments" class="py-16 bg-gray-100 section" style="scroll-margin-top: 4rem;">
       <div class="container mx-auto px-6">
         <h2 class="text-3xl lg:text-4xl font-bold text-center text-gray-800 mb-12 lg:mb-16 gsap-fade-in-up">{t('commitments.title', currentLang)}</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
@@ -129,7 +129,7 @@ const productHighlightsData = frontmatter.product_highlights;
 
   <!-- Product Highlights Section -->
   {productHighlightsData && productHighlightsData.length > 0 && (
-    <section id="products" class="py-16 section">
+    <section id="products" class="py-16 section" style="scroll-margin-top: 4rem;">
       <div class="container mx-auto px-6">
         <h2 class="text-3xl lg:text-4xl font-bold text-center text-gray-800 mb-12 lg:mb-16 gsap-fade-in-up">{t('products.title', currentLang)}</h2>
         <div class="grid md:grid-cols-2 gap-10 lg:gap-16 items-stretch">
@@ -149,7 +149,7 @@ const productHighlightsData = frontmatter.product_highlights;
   )}
 
   <!-- Contact Section -->
-  <section id="contact" class="py-16 lg:py-24 bg-gray-200 section">
+  <section id="contact" class="py-16 lg:py-24 bg-gray-200 section" style="scroll-margin-top: 4rem;">
     <div class="container mx-auto px-6 text-center max-w-3xl">
       <h2 class="text-3xl lg:text-4xl font-bold text-gray-800 mb-6 gsap-fade-in-up" data-gsap-delay="0">
         {t('contact.title', currentLang)}
