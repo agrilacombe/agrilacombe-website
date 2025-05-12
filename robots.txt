@@ -1,0 +1,7 @@
+# robots.txt for agrilacombe.com
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://www.agrilacombe.com/sitemap-index.xml
