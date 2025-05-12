@@ -9,7 +9,7 @@ export interface Props {
   description: string;
   lang: Language;
   currentPath: string; // Astro.url.pathname
-  siteBase: string; 
+  siteBase: string;
   canonicalURL?: string;
 }
 
@@ -46,18 +46,16 @@ const navLinks = [
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <title>{title}</title>
   <meta name="description" content={description}>
   {canonicalURL && <link rel="canonical" href={canonicalURL} />}
 
   {/* Favicons - Assuming these are in public/images/ */}
-  <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-  <link rel="icon" href="/images/favicon.ico" sizes="any"> {/* Fallback for older browsers */}
+  <link rel="icon" href="/images/agrilacombe_logo.png" sizes="any"> {/* Fallback for older browsers */}
 
   <link rel="stylesheet" href="/src/styles/global.css">
-  
+
 </head>
 <body class="bg-gray-50 text-gray-700 antialiased">
   <header id="header" class="bg-white/90 backdrop-blur-md shadow-md fixed w-full z-50 top-0 transition-shadow duration-300">
@@ -81,8 +79,8 @@ const navLinks = [
               const isActive = (link.key === 'nav.home' && isEffectivelyHomepage) || currentPath === pageLink;
 
               return (
-                <a 
-                  href={href} 
+                <a
+                  href={href}
                   class:list={[
                     "px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-green-600 hover:bg-green-100 focus:bg-green-100 focus:text-green-700",
                     { "bg-green-100 text-green-700 font-semibold": isActive }
@@ -127,8 +125,8 @@ const navLinks = [
           const href = isEffectivelyHomepage && link.isHomepageSection && link.anchor ? link.anchor : pageLink;
           const isActive = (link.key === 'nav.home' && isEffectivelyHomepage) || currentPath === pageLink;
           return (
-            <a 
-              href={href} 
+            <a
+              href={href}
               class:list={[
                 "block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-green-600 hover:bg-green-100 focus:bg-green-100 focus:text-green-700",
                 { "bg-green-100 text-green-700 font-semibold": isActive }
@@ -205,7 +203,7 @@ const navLinks = [
           } else if (element.dataset.gsapDelay) { // Allow data-gsap-delay attribute
               delay = parseFloat(element.dataset.gsapDelay);
           }
-          
+
           gsap.from(element, {
             opacity: 0,
             y: 50,
@@ -219,16 +217,16 @@ const navLinks = [
             }
           });
         });
-        
+
         gsap.utils.toArray('.section:not(.hero-section)').forEach(section => { // Exclude hero if it has its own animation
           gsap.from(section, {
             opacity: 0,
-            y: 50, 
+            y: 50,
             duration: 0.8,
             ease: "power2.out",
             scrollTrigger: {
               trigger: section,
-              start: "top 85%", 
+              start: "top 85%",
               toggleActions: "play none none none",
             }
           });
@@ -257,7 +255,7 @@ const navLinks = [
         console.warn('GSAP or ScrollTrigger not loaded. Animations will not run.');
       }
     }
-    
+
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initGsapAnimations);
     } else {
