@@ -5,6 +5,7 @@
 /* Custom global styles */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 4rem; /* 64px - matches header height (h-16) */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
