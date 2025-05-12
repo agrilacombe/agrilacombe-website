@@ -82,8 +82,27 @@ const productHighlightsData = frontmatter.product_highlights;
   )}
 
   <!-- Main Content from MDX (e.g., Welcome message / Story Intro) -->
-  <article id="welcome-story" class="prose prose-lg prose-emerald mx-auto py-12 px-6 section text-gray-700">
-    <Content />
+  <article id="welcome-story" class="container mx-auto py-12 px-6 section">
+    <div class="flex flex-col md:flex-row items-center gap-8 lg:gap-12">
+      <!-- Logo Column -->
+      <div class="w-full md:w-2/5 flex justify-center items-center">
+        <div class="relative w-80 h-80 md:w-full md:max-w-sm flex items-center justify-center">
+          <img
+            src="/images/agrilacombe_logo.png"
+            alt="Agri Lacombe Logo"
+            class="object-contain w-full h-full gsap-fade-in-up"
+            data-gsap-delay="0.1"
+          />
+        </div>
+      </div>
+      
+      <!-- Content Column -->
+      <div class="w-full md:w-3/5 flex items-center gsap-fade-in-up" data-gsap-delay="0.3">
+        <div class="prose prose-lg prose-emerald text-gray-700">
+          <Content />
+        </div>
+      </div>
+    </div>
   </article>
 
   <!-- Commitments Section -->
