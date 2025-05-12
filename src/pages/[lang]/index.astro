@@ -39,6 +39,17 @@ const heroData = frontmatter.hero;
 const commitmentsData = frontmatter.commitments;
 const productHighlightsData = frontmatter.product_highlights;
 
+// Helper function to generate background image CSS with WebP support
+function getBackgroundImageStyle(imagePath) {
+  if (!imagePath) return 'scroll-margin-top: 4rem; background-color: #15803d;';
+  
+  // Extract the path without extension
+  const pathWithoutExt = imagePath.substring(0, imagePath.lastIndexOf('.'));
+  const webpPath = `${pathWithoutExt}.webp`;
+  
+  return `scroll-margin-top: 4rem; background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)), url('${webpPath}');`;
+}
+
 // Prepare product structured data for JSON-LD
 const productsSchema = productHighlightsData ? {
   "@context": "https://schema.org",
@@ -93,7 +104,7 @@ const productsSchema = productHighlightsData ? {
         "justify-center",
         "py-12" // Add some padding
       ]}
-      style={heroData.backgroundImage ? `scroll-margin-top: 4rem; background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)), url('${heroData.backgroundImage}');` : 'scroll-margin-top: 4rem; background-color: #15803d;'} /* Darker green as fallback */
+      style={getBackgroundImageStyle(heroData.backgroundImage)} /* Using WebP with fallback */
     >
       <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         {/* Optional: Agri Lacombe logo in hero as per old index.html, if desired */}

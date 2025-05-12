@@ -42,6 +42,13 @@ a {
   background-position: center;
 }
 
+/* WebP support detection with fallback */
+@supports not (background-image: url('/images/farming-field.webp')) {
+  .hero-section[style*="farming-field.webp"] {
+    background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)), url('/images/farming-field.jpg') !important;
+  }
+}
+
 /* Active state for language toggle buttons */
 .lang-toggle a.active {
   @apply bg-green-700 text-white;
