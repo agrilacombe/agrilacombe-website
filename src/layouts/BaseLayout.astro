@@ -26,6 +26,31 @@ if (currentPath === homePathForLang || currentPath === `${homePathForLang}index.
     isEffectivelyHomepage = true;
 }
 
+// Prepare structured data (JSON-LD) for SEO
+const siteUrl = Astro.site ? Astro.site.toString() : 'https://www.agrilacombe.com';
+const logoUrl = new URL('/images/agrilacombe_logo.png', siteUrl).toString();
+
+// Basic organization schema
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": t('site.title', lang),
+  "url": siteUrl,
+  "logo": logoUrl,
+  "image": logoUrl,
+  "description": description
+};
+
+// Additional schema for homepage
+const homepageSchema = isEffectivelyHomepage ? {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": t('site.title', lang),
+  "url": siteUrl,
+  "description": description,
+  "inLanguage": lang
+} : null;
+
 
 // Define navigation links
 // 'pagePath' is for actual page navigation if not on homepage.
@@ -51,11 +76,36 @@ const navLinks = [
   <meta name="description" content={description}>
   {canonicalURL && <link rel="canonical" href={canonicalURL} />}
 
+  {/* Open Graph meta tags for better social sharing */}
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL || Astro.url.href} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={new URL('/images/agrilacombe_logo.png', Astro.site)} />
+  <meta property="og:locale" content={lang === 'fr' ? 'fr_FR' : lang === 'es' ? 'es_ES' : 'en_US'} />
+
+  {/* Language alternates for multilingual SEO */}
+  {otherLanguages.map(otherLang => (
+    <link
+      rel="alternate"
+      hreflang={otherLang}
+      href={getLocalizedPathForSwitcher(currentPath, otherLang, lang, siteBase)}
+    />
+  ))}
+  <link rel="alternate" hreflang={lang} href={canonicalURL || Astro.url.href} />
+  <link rel="alternate" hreflang="x-default" href={getLocalizedPathForSwitcher(currentPath, 'fr', lang, siteBase)} />
+
   {/* Favicons - Assuming these are in public/images/ */}
   <link rel="icon" href="/images/agrilacombe_logo.png" sizes="any"> {/* Fallback for older browsers */}
 
   <link rel="stylesheet" href="/src/styles/global.css">
 
+  {/* Structured Data (JSON-LD) for SEO */}
+  <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+  {isEffectivelyHomepage && <script type="application/ld+json" set:html={JSON.stringify(homepageSchema)} />}
+  
+  {/* Slot for additional head content from child components */}
+  <slot name="head" />
 </head>
 <body class="bg-[#f5f5ea] text-gray-700 antialiased">
   <header id="header" class="bg-[#f5f5ea] shadow-md fixed w-full z-50 top-0 transition-shadow duration-300">
@@ -64,7 +114,7 @@ const navLinks = [
         <div class="flex items-center">
           <a href={createLocalizedPath('', lang, siteBase)} class="flex items-center space-x-2 rtl:space-x-reverse">
             {/* Ensure agrilacombe_logo.png is in public/images/ */}
-            <img src="/images/agrilacombe_logo.png" class="h-8 sm:h-10 w-auto" alt={t('site.title', lang)} />
+            <img src="/images/agrilacombe_logo.png" class="h-8 sm:h-10 w-auto" alt={`${t('site.title', lang)} - ${t('site.logo.alt', lang) || 'Logo'}`} />
             <span class="self-center text-xl sm:text-2xl font-semibold whitespace-nowrap text-green-700">{t('site.title', lang).split(' - ')[0]}</span>
           </a>
         </div>

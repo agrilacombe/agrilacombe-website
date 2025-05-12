@@ -38,6 +38,31 @@ const siteBaseForPaths = import.meta.env.BASE_URL;
 const heroData = frontmatter.hero;
 const commitmentsData = frontmatter.commitments;
 const productHighlightsData = frontmatter.product_highlights;
+
+// Prepare product structured data for JSON-LD
+const productsSchema = productHighlightsData ? {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": productHighlightsData.map((product, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "item": {
+      "@type": "Product",
+      "name": t(product.titleKey, currentLang),
+      "description": t(product.textKey, currentLang),
+      "image": product.image ? new URL(product.image, Astro.site).toString() : undefined,
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "EUR",
+        "seller": {
+          "@type": "Organization",
+          "name": "Agri Lacombe"
+        }
+      }
+    }
+  }))
+} : null;
 ---
 <BaseLayout
   title={frontmatter.metaTitle || frontmatter.title}
@@ -47,6 +72,10 @@ const productHighlightsData = frontmatter.product_highlights;
   siteBase={siteBaseForPaths}
   canonicalURL={canonicalURL}
 >
+  {/* Add product structured data if products exist */}
+  {productHighlightsData && productHighlightsData.length > 0 && (
+    <script slot="head" type="application/ld+json" set:html={JSON.stringify(productsSchema)} />
+  )}
   <!-- Hero Section -->
   {heroData && (
     <section
@@ -90,7 +119,7 @@ const productHighlightsData = frontmatter.product_highlights;
           <div class="relative w-80 h-80 md:w-full md:max-w-sm flex items-center justify-center">
             <img
               src="/images/agrilacombe_logo.png"
-              alt="Agri Lacombe Logo"
+              alt={`${t('site.title', currentLang)} - ${t('site.logo.alt', currentLang) || 'Logo'}`}
               class="object-contain w-full h-full gsap-fade-in-up"
               data-gsap-delay="0.1"
             />
@@ -137,7 +166,7 @@ const productHighlightsData = frontmatter.product_highlights;
         <div class="grid md:grid-cols-2 gap-10 lg:gap-16 items-stretch">
           {productHighlightsData.map((product, index) => (
             <article class="product-highlight flex flex-col bg-white rounded-lg shadow-xl overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-1 gsap-fade-in-up" data-gsap-delay={index * 0.2}>
-              {product.image && <img src={product.image} alt={t(product.titleKey, currentLang)} class="w-full h-64 object-cover"/>}
+              {product.image && <img src={product.image} alt={`${t(product.titleKey, currentLang)} - ${t('products.image.alt', currentLang) || 'Product image'}`} class="w-full h-64 object-cover" loading="lazy"/>}
               <div class="p-6 flex flex-col flex-grow">
                 <h3 class="text-2xl lg:text-3xl font-semibold text-green-700 mb-3">{t(product.titleKey, currentLang)}</h3>
                 <p class="text-gray-700 leading-relaxed mb-3 flex-grow">{t(product.textKey, currentLang)}</p>

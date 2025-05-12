@@ -3,6 +3,7 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import tailwind from "@astrojs/tailwind";
 import icon from "astro-icon";
+import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
   integrations: [
@@ -14,6 +15,23 @@ export default defineConfig({
       include: {
         tabler: ["menu-2", "x", "star", "leaf", "bulb", "users"], // For hamburger menu and commitment icons
       },
+    }),
+    sitemap({
+      // Configuration for sitemap
+      i18n: {
+        defaultLocale: 'fr',
+        locales: {
+          en: 'en',
+          es: 'es',
+          fr: 'fr',
+        },
+      },
+      // Exclude admin pages if any
+      filter: (page) => !page.includes('/admin/'),
+      // Change frequency and priority can be adjusted as needed
+      changefreq: 'weekly',
+      priority: 0.7,
+      lastmod: new Date(),
     }),
   ],
   // Configure for custom domain
