@@ -18,8 +18,8 @@ const { title, description, lang, currentPath, siteBase, canonicalURL } = Astro.
 const otherLanguages = (['en', 'es', 'fr'] as Language[]).filter(l => l !== lang);
 
 // Determine if the current page is the effective homepage for the current language
-// The homepage path for 'en' might be just the siteBase, while for others it's siteBase + lang + '/'
-// Given the redirect from "/" to "/en/", currentPath for English homepage should be siteBase + "en/"
+// All language paths include the language prefix (e.g., /fr/, /en/, /es/)
+// Given the redirect from "/" to "/fr/", currentPath for French homepage should be siteBase + "fr/"
 let isEffectivelyHomepage = false;
 const homePathForLang = createLocalizedPath('', lang, siteBase); // This will be /en/, /es/, /fr/ (or base + /en/ etc.)
 if (currentPath === homePathForLang || currentPath === `${homePathForLang}index.astro`) { // Comparing against resolved path
