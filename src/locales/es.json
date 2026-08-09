@@ -1,6 +1,6 @@
 {
-  "site.title": "Agri Lacombe - Espárragos y Cebollas Españolas de Calidad Superior",
-  "site.description": "Agri Lacombe, granja familiar cerca de Chambly, Quebec, especializada en el cultivo sostenible de espárragos y cebollas españolas frescas y de alta calidad.",
+  "site.title": "Agri Lacombe - Verduras frescas y locales de calidad superior",
+  "site.description": "Agri Lacombe, granja familiar cerca de Chambly, Quebec, especializada en el cultivo sostenible de espárragos, cebollas y calabazas frescos y de alta calidad.",
   "nav.home": "Inicio",
   "nav.story": "Nuestra Historia",
   "nav.products": "Nuestros Productos",
@@ -18,7 +18,7 @@
   "mobileMenu.open": "Abrir menú principal",
   "mobileMenu.close": "Cerrar menú principal",
   "hero.tagline": "La Frescura de la Tierra, de Nuestra Familia a la Suya",
-  "hero.subtitle": "Espárragos y cebollas españolas de excepción, cultivados con pasión y respeto en Chambly, Quebec.",
+  "hero.subtitle": "Espárragos, cebollas y calabazas de excepción, cultivados con pasión y respeto en Chambly, Quebec.",
   "hero.button": "Descubrir Nuestros Productos",
   "story.title": "Nuestra Historia: Pasión y Terruño",
   "commitments.title": "Nuestros Compromisos Fundamentales",
@@ -35,6 +35,12 @@
   "products.onions.title": "Cebollas Españolas Dulces y Sabrosas",
   "products.onions.description_short": "Cebollas grandes, suaves y jugosas, perfectas para una variedad de usos culinarios.",
   "products.onions.availability": "Disponibles de agosto a octubre (y en conservación).",
+  "products.redOnions.title": "Cebollas rojas frescas y crujientes",
+  "products.redOnions.description_short": "Deliciosas cebollas rojas para añadir sabor y color a todas sus recetas.",
+  "products.redOnions.availability": "Disponibles de agosto a octubre.",
+  "products.pumpkins.title": "Calabazas naranjas y locales",
+  "products.pumpkins.description_short": "Calabazas perfectas para sus decoraciones de Halloween y deliciosas en todas sus preparaciones de sopas y salsas anaranjadas.",
+  "products.pumpkins.availability": "Disponibles de septiembre a octubre.",
   "productInsights.title": "Nuestros Cultivos en Detalle",
   "productInsights.asparagus.title": "Zoom sobre el Espárrago",
   "productInsights.onions.title": "Zoom sobre la Cebolla Española",
@@ -57,5 +63,5 @@
   "contact.directEmail": "O contáctenos directamente por correo electrónico:",
   "contact.email.note": "(Tenga en cuenta que esta dirección es un ejemplo para este sitio de demostración.)",
   "footer.copyright": "Agri Lacombe. Todos los derechos reservados.",
-  "footer.tagline": "Granja familiar | Espárragos y Cebollas Españolas | Quebec, Canadá"
+  "footer.tagline": "Granja familiar | Espárragos, cebollas y calabazas | Quebec, Canadá"
 }

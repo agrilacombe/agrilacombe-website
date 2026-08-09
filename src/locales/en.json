@@ -1,6 +1,6 @@
 {
-  "site.title": "Agri Lacombe - Premium Quality Asparagus and Spanish Onions",
-  "site.description": "Agri Lacombe, a family farm near Saint-Mathias-sur-Richelieu, Quebec, specializing in the sustainable cultivation of fresh, high-quality asparagus and Spanish onions.",
+  "site.title": "Agri Lacombe - Premium Fresh Local Vegetables",
+  "site.description": "Agri Lacombe, a family farm near Saint-Mathias-sur-Richelieu, Quebec, specializing in sustainably grown, high-quality asparagus, onions, and pumpkins.",
   "nav.home": "Home",
   "nav.story": "Our Story",
   "nav.products": "Our Products",
@@ -18,7 +18,7 @@
   "mobileMenu.open": "Open main menu",
   "mobileMenu.close": "Close main menu",
   "hero.tagline": "The Freshness of the Earth, from Our Family to Yours",
-  "hero.subtitle": "Exceptional asparagus and Spanish onions, cultivated with passion and respect in Saint-Mathias-sur-Richelieu, Quebec.",
+  "hero.subtitle": "Exceptional asparagus, onions, and pumpkins, cultivated with passion and respect in Saint-Mathias-sur-Richelieu, Quebec.",
   "hero.button": "Discover Our Products",
   "story.title": "Our Story: Passion and Terroir",
   "commitments.title": "Our Core Commitments",
@@ -35,6 +35,12 @@
   "products.onions.title": "Sweet & Savory Spanish Onions",
   "products.onions.description_short": "Large, mild, and juicy onions perfect for a variety of culinary uses.",
   "products.onions.availability": "Available from August to October (and in storage).",
+  "products.redOnions.title": "Fresh & Crisp Red Onions",
+  "products.redOnions.description_short": "Delicious red onions that add both flavor and color to all your recipes.",
+  "products.redOnions.availability": "Available from August to October.",
+  "products.pumpkins.title": "Local Orange Pumpkins",
+  "products.pumpkins.description_short": "Perfect for Halloween decorations and delicious in all your orange soups and sauces.",
+  "products.pumpkins.availability": "Available from September to October.",
   "productInsights.title": "Our Crops in Detail",
   "productInsights.asparagus.title": "Focus on Asparagus",
   "productInsights.onions.title": "Focus on Spanish Onions",
@@ -57,5 +63,5 @@
   "contact.directEmail": "Or contact us directly by email:",
   "contact.email.note": "(Please note this address is an example for this demo site.)",
   "footer.copyright": "Agri Lacombe. All rights reserved.",
-  "footer.tagline": "Family Farm | Asparagus & Spanish Onions | Quebec, Canada"
+  "footer.tagline": "Family Farm | Asparagus, Onions & Pumpkins | Quebec, Canada"
 }

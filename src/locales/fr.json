@@ -1,6 +1,6 @@
 {
-  "site.title": "Agri Lacombe - Asperges et Oignons Espagnols de Qualité Supérieure",
-  "site.description": "Agri Lacombe, ferme familiale près de Chambly, Québec, spécialisée dans la culture durable d'asperges et d'oignons espagnols frais et de haute qualité.",
+  "site.title": "Agri Lacombe - Légumes frais et locaux de qualité supérieure",
+  "site.description": "Agri Lacombe, ferme familiale près de Chambly, Québec, spécialisée dans la culture durable d'asperges, d'oignons et de citrouilles frais et de haute qualité.",
   "nav.home": "Accueil",
   "nav.story": "Notre histoire",
   "nav.products": "Nos produits",
@@ -18,7 +18,7 @@
   "mobileMenu.open": "Ouvrir le menu principal",
   "mobileMenu.close": "Fermer le menu principal",
   "hero.tagline": "La fraîcheur de la terre, de notre famille à la vôtre",
-  "hero.subtitle": "Asperges et oignons espagnols d'exception, cultivés avec passion et respect à Chambly, Québec.",
+  "hero.subtitle": "Asperges, oignons et citrouilles d'exception, cultivés avec passion et respect à Chambly, Québec.",
   "hero.button": "Découvrir nos produits",
   "story.title": "Notre histoire : passion et terroir",
   "commitments.title": "Nos engagements fondamentaux",
@@ -35,6 +35,12 @@
   "products.onions.title": "Oignons espagnols doux et savoureux",
   "products.onions.description_short": "Gros oignons doux et juteux, parfaits pour une variété d'utilisations culinaires.",
   "products.onions.availability": "Disponibles d'août à octobre (et en conservation).",
+  "products.redOnions.title": "Oignons rouges frais et croquants",
+  "products.redOnions.description_short": "De délicieux oignons rouges pour ajouter à la fois saveur et couleur dans toutes vos recettes.",
+  "products.redOnions.availability": "Disponibles d'août à octobre.",
+  "products.pumpkins.title": "Citrouilles orangées et locales",
+  "products.pumpkins.description_short": "Des citrouilles parfaites pour vos décorations d'Halloween et savoureuses dans toutes vos préparations de soupes et de sauces orangées.",
+  "products.pumpkins.availability": "Disponibles de septembre à octobre.",
   "productInsights.title": "Nos cultures en détail",
   "productInsights.asparagus.title": "Zoom sur l'asperge",
   "productInsights.onions.title": "Zoom sur l'oignon espagnol",
@@ -57,5 +63,5 @@
   "contact.directEmail": "Ou contactez-nous directement par courriel :",
   "contact.email.note": "(Veuillez noter que cette adresse est un exemple pour ce site de démonstration.)",
   "footer.copyright": "Agri Lacombe. Tous droits réservés.",
-  "footer.tagline": "Ferme familiale | Asperges & Oignons Espagnols | Québec, Canada"
+  "footer.tagline": "Ferme familiale | Asperges, oignons & citrouilles | Québec, Canada"
 }
