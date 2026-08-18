@@ -1,6 +1,6 @@
 {
-  "site.title": "Agri Lacombe - Premium Fresh Local Vegetables",
-  "site.description": "Agri Lacombe, a family farm near Saint-Mathias-sur-Richelieu, Quebec, specializing in sustainably grown, high-quality asparagus, onions, and pumpkins.",
+  "site.title": "Agri Lacombe - Premium Local Farm Products",
+  "site.description": "Agri Lacombe, a family farm near Saint-Mathias-sur-Richelieu, Quebec, offering sustainably grown asparagus, onions, pumpkins, and quality camping firewood.",
   "nav.home": "Home",
   "nav.story": "Our Story",
   "nav.products": "Our Products",
@@ -18,7 +18,7 @@
   "mobileMenu.open": "Open main menu",
   "mobileMenu.close": "Close main menu",
   "hero.tagline": "The Freshness of the Earth, from Our Family to Yours",
-  "hero.subtitle": "Exceptional asparagus, onions, and pumpkins, cultivated with passion and respect in Saint-Mathias-sur-Richelieu, Quebec.",
+  "hero.subtitle": "Exceptional local vegetables and quality camping firewood, offered with passion and care in Saint-Mathias-sur-Richelieu, Quebec.",
   "hero.button": "Discover Our Products",
   "story.title": "Our Story: Passion and Terroir",
   "commitments.title": "Our Core Commitments",
@@ -41,6 +41,9 @@
   "products.pumpkins.title": "Local Orange Pumpkins",
   "products.pumpkins.description_short": "Perfect for Halloween decorations and delicious in all your orange soups and sauces.",
   "products.pumpkins.availability": "Available from September to October.",
+  "products.campingFirewood.title": "Ready-to-Burn Camping Firewood",
+  "products.campingFirewood.description_short": "Dry, split firewood ready for your campfires and evenings outdoors.",
+  "products.campingFirewood.availability": "Available from April to November.",
   "productInsights.title": "Our Crops in Detail",
   "productInsights.asparagus.title": "Focus on Asparagus",
   "productInsights.onions.title": "Focus on Spanish Onions",
@@ -63,5 +66,5 @@
   "contact.directEmail": "Or contact us directly by email:",
   "contact.email.note": "(Please note this address is an example for this demo site.)",
   "footer.copyright": "Agri Lacombe. All rights reserved.",
-  "footer.tagline": "Family Farm | Asparagus, Onions & Pumpkins | Quebec, Canada"
+  "footer.tagline": "Family Farm | Local Vegetables & Camping Firewood | Quebec, Canada"
 }

@@ -1,6 +1,6 @@
 {
-  "site.title": "Agri Lacombe - Légumes frais et locaux de qualité supérieure",
-  "site.description": "Agri Lacombe, ferme familiale près de Chambly, Québec, spécialisée dans la culture durable d'asperges, d'oignons et de citrouilles frais et de haute qualité.",
+  "site.title": "Agri Lacombe - Produits locaux de qualité supérieure",
+  "site.description": "Agri Lacombe, ferme familiale près de Chambly, Québec, qui cultive des asperges, des oignons et des citrouilles et propose du bois de camping de qualité.",
   "nav.home": "Accueil",
   "nav.story": "Notre histoire",
   "nav.products": "Nos produits",
@@ -18,7 +18,7 @@
   "mobileMenu.open": "Ouvrir le menu principal",
   "mobileMenu.close": "Fermer le menu principal",
   "hero.tagline": "La fraîcheur de la terre, de notre famille à la vôtre",
-  "hero.subtitle": "Asperges, oignons et citrouilles d'exception, cultivés avec passion et respect à Chambly, Québec.",
+  "hero.subtitle": "Légumes locaux d'exception et bois de camping de qualité, offerts avec passion et soin à Chambly, Québec.",
   "hero.button": "Découvrir nos produits",
   "story.title": "Notre histoire : passion et terroir",
   "commitments.title": "Nos engagements fondamentaux",
@@ -41,6 +41,9 @@
   "products.pumpkins.title": "Citrouilles orangées et locales",
   "products.pumpkins.description_short": "Des citrouilles parfaites pour vos décorations d'Halloween et savoureuses dans toutes vos préparations de soupes et de sauces orangées.",
   "products.pumpkins.availability": "Disponibles de septembre à octobre.",
+  "products.campingFirewood.title": "Bois de camping prêt à brûler",
+  "products.campingFirewood.description_short": "Du bois sec et fendu, prêt pour vos feux de camp et vos soirées en plein air.",
+  "products.campingFirewood.availability": "Disponible d'avril à novembre.",
   "productInsights.title": "Nos cultures en détail",
   "productInsights.asparagus.title": "Zoom sur l'asperge",
   "productInsights.onions.title": "Zoom sur l'oignon espagnol",
@@ -63,5 +66,5 @@
   "contact.directEmail": "Ou contactez-nous directement par courriel :",
   "contact.email.note": "(Veuillez noter que cette adresse est un exemple pour ce site de démonstration.)",
   "footer.copyright": "Agri Lacombe. Tous droits réservés.",
-  "footer.tagline": "Ferme familiale | Asperges, oignons & citrouilles | Québec, Canada"
+  "footer.tagline": "Ferme familiale | Légumes locaux et bois de camping | Québec, Canada"
 }
