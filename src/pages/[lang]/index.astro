@@ -218,6 +218,9 @@ const productsSchema = productHighlightsData ? {
           {t('contact.wholesale.cta', currentLang)}
         </p>
         {/* Removed response time paragraph based on user request in previous turn */}
+        <p class="mt-4 text-sm">
+          <a href={createLocalizedPath('media', currentLang, siteBaseForPaths)} class="font-semibold text-green-700 underline underline-offset-2 hover:text-green-900">{t('contact.mediaKit', currentLang)}</a>
+        </p>
       </div>
 
       {/* Placeholder for a more complex form if needed in the future */}

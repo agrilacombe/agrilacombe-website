@@ -1,0 +1,21 @@
+---
+// src/pages/media.astro
+// Short link to share: agrilacombe.com/media -> the French media kit.
+const target = '/fr/media/';
+const canonical = new URL(target, Astro.site ?? 'http://localhost:4321').toString();
+---
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="refresh" content={`0;url=${target}`}>
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href={canonical}>
+  <title>Trousse média — Ferme Agri Lacombe</title>
+</head>
+<body>
+  <p><a href={target}>Trousse média — Ferme Agri Lacombe</a></p>
+  <script is:inline>window.location.replace('/fr/media/');</script>
+</body>
+</html>

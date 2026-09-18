@@ -209,6 +209,9 @@ const navLinks = [
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <p class="text-sm">&copy; {new Date().getFullYear()} {t('footer.copyright', lang)}</p>
       <p class="text-xs mt-1">{t('footer.tagline', lang)}</p>
+      <p class="text-xs mt-3">
+        <a href={createLocalizedPath('media', lang, siteBase)} class="underline decoration-gray-500 underline-offset-2 hover:text-white">{t('footer.mediaKit', lang)}</a>
+      </p>
     </div>
   </footer>
 

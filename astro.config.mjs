@@ -27,7 +27,8 @@ export default defineConfig({
         },
       },
       // Exclude admin pages if any
-      filter: (page) => !page.includes('/admin/'),
+      // Exclude admin pages and the /media/ short-link redirect
+      filter: (page) => !page.includes('/admin/') && new URL(page).pathname !== '/media/',
       // Change frequency and priority can be adjusted as needed
       changefreq: 'weekly',
       priority: 0.7,

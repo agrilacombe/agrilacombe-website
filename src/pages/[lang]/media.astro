@@ -1,0 +1,309 @@
+---
+// src/pages/[lang]/media.astro — media kit (trousse média)
+// Texts come from src/data/media-kit.json; downloadable files and the palette
+// from src/data/media-kit-files.json, which `media-kit/build.py` generates.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import type { Language } from '../../utils/i18n';
+import kit from '../../data/media-kit.json';
+import files from '../../data/media-kit-files.json';
+
+export function getStaticPaths() {
+  return (['fr', 'en', 'es'] as const).map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Language;
+const d = kit[lang];
+const siteBase = import.meta.env.BASE_URL;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'http://localhost:4321').toString();
+
+const decimal = lang === 'en' ? '.' : ',';
+function size(bytes: number) {
+  const unit = lang === 'fr' ? ['ko', 'Mo'] : ['KB', 'MB'];
+  if (bytes >= 1e6) return `${(bytes / 1e6).toFixed(1).replace('.', decimal)} ${unit[1]}`;
+  return `${Math.max(1, Math.round(bytes / 1e3))} ${unit[0]}`;
+}
+
+const LOGO_BG = '#F4F5EB'; // the cream behind the original logo
+const logoCards = [
+  ['original', LOGO_BG], ['transparent', '#ffffff'], ['nb', '#ffffff'],
+].map(([variant, bg]) => ({ variant, bg, file: files.logos[variant] }));
+
+const docs = (['fiche', 'affichette', 'guide'] as const).map((key) => ({ ...d.print.docs[key], file: files.documents[lang][key] }));
+
+const cover = files.social['AgriLacombe_Facebook-couverture_1640x624'];
+const textFile = files.texts[`AgriLacombe_Textes_${lang.toUpperCase()}`];
+// The short link redirects to the French page; the language pages have their own address.
+const kitURL = new URL(lang === 'fr' ? '/media/' : `/${lang}/media/`, Astro.site ?? 'https://www.agrilacombe.com').toString();
+const kitURLShort = kitURL.replace(/^https:\/\/(www\.)?/, '').replace(/\/$/, '');
+const address = kit.contact.address[lang];
+const nav = ['logos', 'texts', 'colours', 'seasons', 'print', 'social', 'rules', 'contact'] as const;
+const btn = 'inline-flex items-center gap-1 rounded-md border border-[#1E3A1B]/25 bg-white px-2.5 py-1 text-xs font-semibold text-[#1E3A1B] hover:bg-[#1E3A1B] hover:text-white transition-colors';
+const h2 = 'font-montserrat text-2xl sm:text-3xl font-bold text-[#1E3A1B]';
+---
+<BaseLayout
+  title={d.metaTitle}
+  description={d.metaDescription}
+  lang={lang}
+  currentPath={Astro.url.pathname}
+  siteBase={siteBase}
+  canonicalURL={canonicalURL}
+>
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+    <style>
+      .font-montserrat { font-family: Montserrat, sans-serif; }
+    </style>
+  </Fragment>
+
+  <!-- Intro -->
+  <section class="bg-[#1E3A1B] text-[#F4F3E8]">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 grid md:grid-cols-[1fr_auto] gap-10 items-center">
+      <div>
+        <p class="font-montserrat text-xs font-bold tracking-[.2em] uppercase text-[#C3C973]">Ferme Agri Lacombe</p>
+        <h1 class="font-montserrat text-4xl sm:text-5xl font-bold mt-2">{d.slugTitle}</h1>
+        <p class="mt-4 max-w-2xl text-lg leading-relaxed text-[#F4F3E8]/90">{d.intro}</p>
+        <a href={files.zip.path} download class="mt-8 inline-flex items-center gap-2 rounded-lg bg-[#C9962F] px-6 py-3 font-semibold text-white shadow-lg hover:bg-[#b3852a] transition-colors">
+          <svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2"/></svg>
+          {d.downloadAll}
+          <span class="text-sm font-normal opacity-90">(ZIP, {size(files.zip.size)})</span>
+        </a>
+        <div class="mt-6 flex flex-wrap items-center gap-3 text-sm">
+          <span class="text-[#F4F3E8]/75">{d.share.kitLink} :</span>
+          <code class="rounded bg-white/10 px-2 py-1 text-[#F4F3E8]">{kitURLShort}</code>
+          <button type="button" class={btn} data-copy={kitURL} data-copied={d.texts.copied}>{d.share.copyLink}</button>
+        </div>
+      </div>
+      <div class="hidden md:block w-64 rounded-2xl p-3" style={`background:${LOGO_BG}`}>
+        <img src={files.logos.transparent.path} alt="" class="w-full" />
+      </div>
+    </div>
+  </section>
+
+  <nav class="sticky top-16 z-40 bg-[#f5f5ea]/95 backdrop-blur border-b border-[#1E3A1B]/10" aria-label={d.slugTitle}>
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex gap-1 overflow-x-auto py-2 text-sm">
+      {nav.map((key) => (
+        <a href={`#${key}`} class="whitespace-nowrap rounded-full px-3 py-1 font-medium text-[#1E3A1B] hover:bg-[#1E3A1B]/10">{d.nav[key]}</a>
+      ))}
+    </div>
+  </nav>
+
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-20">
+
+    <!-- Logos -->
+    <section id="logos" class="scroll-mt-32">
+      <h2 class={h2}>{d.logos.title}</h2>
+      <p class="mt-2 text-gray-600">{d.logos.lead}</p>
+      <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {logoCards.map((card) => (
+          <article class="rounded-xl border border-gray-200 bg-white overflow-hidden shadow-sm flex flex-col">
+            <div class="h-64 flex items-center justify-center p-4" style={`background:${card.bg}`}>
+              <img src={card.file.path} alt={`${d.logos.name} Agri Lacombe — ${d.logos.variants[card.variant]}`} class="max-h-full max-w-full" loading="lazy" />
+            </div>
+            <div class="p-4 flex flex-col gap-3 flex-grow">
+              <div>
+                <h3 class="font-montserrat font-bold text-[#1E3A1B]">{d.logos.name} <span class="font-normal text-gray-500">· {d.logos.variants[card.variant]}</span></h3>
+                <p class="text-sm text-gray-600 mt-1">{d.logos.variantUse[card.variant]}</p>
+              </div>
+              <div class="mt-auto">
+                <a href={card.file.path} download class={btn}>PNG · {size(card.file.size)}</a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- Texts & pitch -->
+    <section id="texts" class="scroll-mt-32">
+      <h2 class={h2}>{d.texts.title}</h2>
+      <p class="mt-2 text-gray-600">{d.texts.lead}
+        <a href={textFile.path} download class="ml-1 underline decoration-[#C9962F] underline-offset-2 hover:text-[#1E3A1B]">(.txt)</a>
+      </p>
+      <div class="mt-8 grid gap-6 lg:grid-cols-3">
+        {(['oneLine', 'short', 'long'] as const).map((key) => (
+          <div class:list={['rounded-xl bg-white border border-gray-200 p-6 flex flex-col', { 'lg:col-span-3': key === 'long' }]}>
+            <div class="flex items-center justify-between gap-4">
+              <h3 class="font-montserrat text-sm font-bold uppercase tracking-wider text-[#8A9A45]">{d.texts[`${key}Label`]}</h3>
+              <button type="button" class={btn} data-copy={d.texts[key]} data-copied={d.texts.copied}>{d.texts.copy}</button>
+            </div>
+            <p class="mt-3 leading-relaxed text-gray-800">{d.texts[key]}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-10 rounded-2xl bg-[#1E3A1B] text-[#F4F3E8] p-8 sm:p-10">
+        <p class="font-montserrat text-xs font-bold tracking-[.2em] uppercase text-[#C3C973]">{d.pitch.title}</p>
+        <div class="mt-2 flex flex-wrap items-start justify-between gap-4">
+          <h3 class="font-montserrat text-2xl sm:text-3xl font-bold max-w-2xl">{d.pitch.headline}</h3>
+          <button type="button" class={btn} data-copy={`${d.pitch.headline}\n\n${d.pitch.elevator}`} data-copied={d.texts.copied}>{d.texts.copy}</button>
+        </div>
+        <p class="mt-4 max-w-3xl leading-relaxed text-[#F4F3E8]/90">{d.pitch.elevator}</p>
+        <div class="mt-8 grid gap-6 sm:grid-cols-3">
+          {d.pitch.points.map((p, i) => (
+            <div>
+              <span class="inline-grid h-8 w-8 place-items-center rounded-full bg-[#C9962F] font-montserrat font-bold text-white">{i + 1}</span>
+              <h4 class="mt-3 font-montserrat font-bold">{p.title}</h4>
+              <p class="mt-1 text-sm leading-relaxed text-[#F4F3E8]/85">{p.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="mt-10 rounded-xl bg-white border border-gray-200 p-6">
+        <h3 class="font-montserrat font-bold text-[#1E3A1B]">{d.facts.title}</h3>
+        <dl class="mt-5 grid gap-x-10 gap-y-8 sm:grid-cols-2">
+          {d.facts.items.map(([k, v]) => (
+            <div><dt class="text-xs font-bold uppercase tracking-wider text-gray-500">{k}</dt><dd class="text-gray-800">{v}</dd></div>
+          ))}
+        </dl>
+      </div>
+    </section>
+
+    <!-- Colours -->
+    <section id="colours" class="scroll-mt-32">
+      <h2 class={h2}>{d.colours.title}</h2>
+      <p class="mt-2 text-gray-600">{d.colours.lead}</p>
+      <div class="mt-8 grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
+        {files.palette.map((c) => (
+          <div class="rounded-xl bg-white border border-gray-200 overflow-hidden">
+            <div class="h-24 border-b border-gray-200" style={`background:${c.hex}`}></div>
+            <div class="p-4 text-sm">
+              <h3 class="font-montserrat font-bold text-[#1E3A1B]">{c.name[lang]}</h3>
+              <p class="text-xs text-gray-500 mt-0.5">{c.role[lang]}</p>
+              <dl class="mt-3 grid grid-cols-[auto_1fr] gap-x-3 gap-y-0.5 text-xs tabular-nums">
+                <dt class="text-gray-500">HEX</dt><dd>{c.hex}</dd>
+                <dt class="text-gray-500">{lang === 'fr' ? 'RVB' : 'RGB'}</dt><dd>{c.rgb.join(', ')}</dd>
+              </dl>
+              <button type="button" class:list={[btn, 'mt-3']} data-copy={c.hex} data-copied={d.texts.copied}>{d.colours.copyHex}</button>
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </section>
+
+    <!-- Seasons -->
+    <section id="seasons" class="scroll-mt-32">
+      <h2 class={h2}>{d.seasons.title}</h2>
+      <p class="mt-2 text-gray-600">{d.seasons.lead}</p>
+      <div class="mt-8 overflow-x-auto rounded-xl bg-white border border-gray-200 p-4 sm:p-6">
+        <table class="w-full min-w-[640px] border-separate border-spacing-1 text-sm">
+          <thead>
+            <tr>
+              <th></th>
+              {d.seasons.months.map((m) => <th class="font-montserrat text-[11px] font-bold text-[#1E3A1B]">{m}</th>)}
+            </tr>
+          </thead>
+          <tbody>
+            {kit.seasons.map((crop) => (
+              <tr>
+                <th class="whitespace-nowrap pr-4 text-left font-semibold text-gray-800">
+                  {d.seasons.crops[crop.key]}
+                </th>
+                {Array.from({ length: 12 }, (_, i) => i + 1).map((m) => (
+                  <td class:list={[
+                    'h-6 rounded',
+                    crop.months.includes(m) ? (crop.extra ? 'bg-[#C9962F]' : 'bg-[#8A9A45]') : 'bg-[#ebeadc]',
+                  ]}></td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Print -->
+    <section id="print" class="scroll-mt-32">
+      <h2 class={h2}>{d.print.title}</h2>
+      <p class="mt-2 text-gray-600">{d.print.lead}</p>
+      <div class="mt-8 grid gap-6 sm:grid-cols-3">
+        {docs.map((doc) => (
+          <a href={doc.file.path} target="_blank" class="group rounded-xl bg-white border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow flex flex-col">
+            <div class="bg-gray-100 p-4 flex items-center justify-center h-64">
+              <img src={doc.file.preview} alt="" loading="lazy" class="max-h-full shadow-md group-hover:scale-[1.02] transition-transform" />
+            </div>
+            <div class="p-4">
+              <h3 class="font-montserrat font-bold text-[#1E3A1B]">{doc.name}</h3>
+              <p class="text-sm text-gray-600 mt-1">{doc.use}</p>
+              <p class="text-xs text-gray-500 mt-2">PDF · {size(doc.file.size)}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- Social -->
+    <section id="social" class="scroll-mt-32">
+      <h2 class={h2}>{d.social.title}</h2>
+      <p class="mt-2 text-gray-600">{d.social.lead}</p>
+      <a href={kit.contact.facebook} target="_blank" rel="noopener" class="mt-6 inline-flex items-center gap-3 rounded-lg bg-[#1877F2] px-5 py-3 font-semibold text-white hover:bg-[#166fe0]">
+        <svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0022 12z"/></svg>
+        {d.social.follow} — {kit.contact.facebookName}
+      </a>
+      <div class="mt-4 flex flex-wrap items-center gap-3 text-sm">
+        <span class="text-gray-600">{d.share.fbLink} :</span>
+        <button type="button" class={btn} data-copy={kit.contact.facebook} data-copied={d.texts.copied}>{d.share.copyLink}</button>
+      </div>
+      <h3 class="mt-10 font-montserrat font-bold text-[#1E3A1B]">{d.social.assets}</h3>
+      <div class="mt-4 max-w-3xl">
+        <a href={cover.path} download class="block rounded-xl bg-white border border-gray-200 p-4 hover:shadow-lg transition-shadow">
+          <img src={cover.path} alt="" loading="lazy" class="w-full rounded-md border border-gray-100" />
+          <p class="mt-3 text-sm font-semibold text-[#1E3A1B]">{d.social.cover}</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Rules -->
+    <section id="rules" class="scroll-mt-32">
+      <h2 class={h2}>{d.rules.title}</h2>
+      <div class="mt-6 grid gap-6 sm:grid-cols-2">
+        <ul class="rounded-xl bg-white border border-gray-200 p-6 space-y-2">
+          {d.rules.do.map((r) => <li class="flex gap-3"><span class="text-green-700 font-bold">✓</span>{r}</li>)}
+        </ul>
+        <ul class="rounded-xl bg-white border border-gray-200 p-6 space-y-2">
+          {d.rules.dont.map((r) => <li class="flex gap-3"><span class="text-red-700 font-bold">✕</span>{r}</li>)}
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="scroll-mt-32">
+      <div class="rounded-2xl bg-white border border-gray-200 p-8 grid gap-8 md:grid-cols-[1fr_auto] items-center">
+        <div>
+          <h2 class={h2}>{d.contactBlock.title}</h2>
+          <p class="mt-2 text-gray-600">{d.contactBlock.lead}</p>
+          <dl class="mt-5 grid gap-x-8 gap-y-4 sm:grid-cols-3 text-sm">
+            <div><dt class="text-gray-500">{d.contactBlock.address}</dt><dd class="font-semibold text-[#1E3A1B]">{address[0]}<br />{address[1]}</dd></div>
+            <div><dt class="text-gray-500">{d.contactBlock.email}</dt><dd><a class="font-semibold text-[#1E3A1B] hover:underline" href={`mailto:${kit.contact.email}`}>{kit.contact.email}</a></dd></div>
+            <div><dt class="text-gray-500">Facebook</dt><dd><a class="font-semibold text-[#1E3A1B] hover:underline" href={kit.contact.facebook} target="_blank" rel="noopener">{kit.contact.facebookName}</a></dd></div>
+          </dl>
+        </div>
+        <img src={files.logos.transparent.path} alt="Ferme Agri Lacombe" class="w-48 max-w-full" />
+      </div>
+      <p class="mt-6 text-xs text-gray-500 max-w-3xl">{d.usage}</p>
+    </section>
+  </div>
+
+  <script>
+    document.querySelectorAll<HTMLButtonElement>('[data-copy]').forEach((button) => {
+      button.addEventListener('click', async () => {
+        const label = button.textContent;
+        try {
+          await navigator.clipboard.writeText(button.dataset.copy ?? '');
+        } catch {
+          const area = document.createElement('textarea');
+          area.value = button.dataset.copy ?? '';
+          document.body.appendChild(area);
+          area.select();
+          document.execCommand('copy');
+          area.remove();
+        }
+        button.textContent = button.dataset.copied ?? label;
+        setTimeout(() => { button.textContent = label; }, 1500);
+      });
+    });
+  </script>
+</BaseLayout>

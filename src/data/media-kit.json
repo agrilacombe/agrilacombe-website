@@ -1,0 +1,719 @@
+{
+  "contact": {
+    "email": "info@agrilacombe.com",
+    "web": "agrilacombe.com",
+    "facebook": "https://www.facebook.com/people/Ferme-Agri-Lacombe/61593134068769/",
+    "facebookName": "Ferme Agri Lacombe",
+    "address": {
+      "fr": [
+        "96, chemin de la Rivière-des-Hurons Est",
+        "Saint-Mathias-sur-Richelieu (Québec)"
+      ],
+      "en": [
+        "96 chemin de la Rivière-des-Hurons Est",
+        "Saint-Mathias-sur-Richelieu, Quebec"
+      ],
+      "es": [
+        "96, chemin de la Rivière-des-Hurons Est",
+        "Saint-Mathias-sur-Richelieu (Quebec)"
+      ]
+    }
+  },
+  "seasons": [
+    {
+      "key": "asparagus",
+      "months": [
+        5,
+        6
+      ]
+    },
+    {
+      "key": "spanishOnion",
+      "months": [
+        8,
+        9,
+        10
+      ]
+    },
+    {
+      "key": "redOnion",
+      "months": [
+        8,
+        9,
+        10
+      ]
+    },
+    {
+      "key": "pumpkin",
+      "months": [
+        9,
+        10
+      ]
+    },
+    {
+      "key": "firewood",
+      "months": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "extra": true
+    }
+  ],
+  "fr": {
+    "slugTitle": "Trousse média",
+    "metaTitle": "Trousse média — Ferme Agri Lacombe",
+    "metaDescription": "Logos, textes de présentation, couleurs et documents imprimables de la Ferme Agri Lacombe, pour les épiciers, les médias et nos partenaires.",
+    "intro": "Tout ce qu’il faut pour présenter la Ferme Agri Lacombe : nos logos pour l’impression et le web, nos textes de présentation, nos couleurs et des documents prêts à imprimer. Épiciers, médias et partenaires : servez-vous!",
+    "downloadAll": "Télécharger la trousse complète",
+    "nav": {
+      "logos": "Logos",
+      "texts": "Textes",
+      "colours": "Couleurs",
+      "seasons": "Saisons",
+      "print": "À imprimer",
+      "social": "Réseaux sociaux",
+      "rules": "Utilisation",
+      "contact": "Contact"
+    },
+    "logos": {
+      "title": "Logos",
+      "name": "Logo",
+      "lead": "Notre logo officiel, en fichiers PNG.",
+      "variants": {
+        "original": "Original",
+        "transparent": "Fond transparent",
+        "nb": "Noir et blanc"
+      },
+      "variantUse": {
+        "original": "Le fichier d’origine, sur son fond crème.",
+        "transparent": "Sans le fond crème, pour les documents et fonds blancs ou clairs.",
+        "nb": "Pour l’impression en noir, sur fond blanc ou clair."
+      }
+    },
+    "texts": {
+      "title": "Textes de présentation",
+      "lead": "Prêts à copier-coller. Merci de ne pas les modifier sans nous consulter.",
+      "oneLineLabel": "En une phrase",
+      "oneLine": "La Ferme Agri Lacombe est une ferme familiale de Saint-Mathias-sur-Richelieu, en Montérégie, qui cultive des oignons, de l’ail, des asperges et des citrouilles.",
+      "shortLabel": "Description courte",
+      "short": "La Ferme Agri Lacombe est un producteur local et familial situé à Saint-Mathias-sur-Richelieu, en Montérégie. Plusieurs légumes frais y sont cultivés au fil des saisons : oignons espagnols, oignons rouges, ail, citrouilles, asperges… et plusieurs autres à venir!",
+      "longLabel": "Description longue",
+      "long": "Installée à Saint-Mathias-sur-Richelieu, en Montérégie, la Ferme Agri Lacombe est une ferme familiale. Nous cultivons des oignons espagnols, des oignons rouges, de l’ail, des asperges et des citrouilles, que nous récoltons et entreposons à la ferme. Nous offrons aussi du bois de camping, d’avril à novembre. De nouvelles cultures s’ajoutent chaque saison.",
+      "copy": "Copier",
+      "copied": "Copié!"
+    },
+    "pitch": {
+      "title": "Pourquoi Agri Lacombe",
+      "headline": "Des légumes frais d’ici, cultivés pour vous.",
+      "elevator": "Agri Lacombe est une ferme familiale de Saint-Mathias-sur-Richelieu, en Montérégie, à une quarantaine de kilomètres de Montréal. Nous cultivons des oignons, de l’ail, des asperges et des citrouilles.",
+      "points": [
+        {
+          "title": "Cultivé ici, par nous",
+          "text": "Nos légumes viennent de nos champs de Saint-Mathias-sur-Richelieu."
+        },
+        {
+          "title": "Tout près",
+          "text": "À une quarantaine de kilomètres de Montréal."
+        },
+        {
+          "title": "Une ferme qui grandit",
+          "text": "De nouvelles cultures s’ajoutent chaque saison."
+        }
+      ]
+    },
+    "facts": {
+      "title": "En bref",
+      "items": [
+        [
+          "Nom",
+          "Ferme Agri Lacombe"
+        ],
+        [
+          "Adresse",
+          "96, chemin de la Rivière-des-Hurons Est, Saint-Mathias-sur-Richelieu (Québec)"
+        ],
+        [
+          "Cultures",
+          "Oignons espagnols, oignons rouges, ail, asperges, citrouilles"
+        ],
+        [
+          "Aussi offert",
+          "Bois de camping (avril à novembre)"
+        ]
+      ]
+    },
+    "colours": {
+      "title": "Couleurs",
+      "lead": "Les couleurs de notre logo.",
+      "copyHex": "Copier le code"
+    },
+    "seasons": {
+      "title": "Nos saisons",
+      "lead": "Disponibilité approximative de nos produits. Elle varie selon la météo.",
+      "months": [
+        "JAN",
+        "FÉV",
+        "MAR",
+        "AVR",
+        "MAI",
+        "JUIN",
+        "JUIL",
+        "AOÛT",
+        "SEPT",
+        "OCT",
+        "NOV",
+        "DÉC"
+      ],
+      "legendFresh": "Récolte fraîche",
+      "crops": {
+        "asparagus": "Asperges",
+        "spanishOnion": "Oignons espagnols",
+        "redOnion": "Oignons rouges",
+        "pumpkin": "Citrouilles",
+        "firewood": "Bois de camping"
+      }
+    },
+    "print": {
+      "title": "Documents à imprimer",
+      "lead": "Format lettre (8,5 × 11 po), prêts pour l’imprimante du bureau ou l’imprimerie.",
+      "docs": {
+        "fiche": {
+          "name": "Fiche de présentation",
+          "use": "À remettre aux acheteurs et gérants de rayon."
+        },
+        "affichette": {
+          "name": "Affichette « Produit local »",
+          "use": "Pour les présentoirs et porte-affiches en épicerie."
+        },
+        "guide": {
+          "name": "Guide de marque",
+          "use": "Règles d’utilisation du logo et couleurs."
+        }
+      }
+    },
+    "social": {
+      "title": "Réseaux sociaux",
+      "lead": "Suivez-nous et identifiez-nous dans vos publications!",
+      "follow": "Voir notre page Facebook",
+      "assets": "Image prête à téléverser",
+      "cover": "Photo de couverture Facebook (1640 × 624)"
+    },
+    "rules": {
+      "title": "Utilisation du logo",
+      "do": [
+        "Utiliser les fichiers originaux de cette page",
+        "Laisser un espace libre autour du logo (au moins la hauteur du « A »)",
+        "Placer le logo sur un fond blanc ou clair",
+        "Respecter la taille minimale : 25 mm (1 po) de large"
+      ],
+      "dont": [
+        "Étirer, déformer ou incliner le logo",
+        "Changer les couleurs ou ajouter des effets (ombre, contour, dégradé)",
+        "Placer le logo couleur sur un fond chargé ou foncé",
+        "Redessiner ou recomposer le logo"
+      ]
+    },
+    "contactBlock": {
+      "title": "Contact",
+      "lead": "Pour les commandes, les demandes de médias ou des fichiers dans un autre format :",
+      "email": "Courriel",
+      "address": "Adresse"
+    },
+    "usage": "Ces éléments peuvent être utilisés pour présenter ou promouvoir les produits de la Ferme Agri Lacombe. Toute autre utilisation demande notre accord écrit.",
+    "sign": {
+      "pill": "PRODUIT LOCAL",
+      "title": "Cultivé chez nous",
+      "sub": [
+        "à Saint-Mathias-sur-Richelieu,",
+        "en Montérégie"
+      ],
+      "desc": [
+        "Des légumes frais, cultivés et récoltés",
+        "par une ferme familiale d’ici."
+      ]
+    },
+    "guide": {
+      "title": "Guide de marque",
+      "subtitle": "Logo et couleurs",
+      "logoTitle": "Notre logo",
+      "logoLead": "Utilisez toujours les fichiers de la trousse média. Ne modifiez pas et ne redessinez pas le logo.",
+      "caps": {
+        "original": "le fichier d’origine",
+        "transparent": "fonds blancs ou clairs",
+        "nb": "impression en noir"
+      },
+      "zoneTitle": "Zone de protection",
+      "zoneText": "Gardez un espace libre tout autour du logo, au moins égal à X, la hauteur de la lettre « A » du mot AGRI. Aucun texte ni image dans cette zone.",
+      "sizesTitle": "Tailles à l’impression",
+      "sizes": [
+        [
+          "Minimum",
+          "25 mm",
+          "(1 po) de large"
+        ],
+        [
+          "Maximum",
+          "8 cm",
+          "(3 po) de large, selon la qualité du fichier actuel"
+        ]
+      ],
+      "rgb": "RVB",
+      "usageTitle": "Utilisation du logo",
+      "do": "À faire",
+      "dont": "À éviter",
+      "bad": [
+        "Étiré",
+        "Couleurs modifiées",
+        "Sur fond foncé",
+        "Effets ajoutés"
+      ],
+      "footer": "Guide de marque, version 1 (septembre 2026)"
+    },
+    "ficheKicker": "Ferme familiale · Montérégie, Québec",
+    "share": {
+      "kitLink": "Lien de la trousse à partager",
+      "copyLink": "Copier le lien",
+      "fbLink": "Lien de notre page Facebook"
+    }
+  },
+  "en": {
+    "slugTitle": "Media kit",
+    "metaTitle": "Media kit — Ferme Agri Lacombe",
+    "metaDescription": "Logos, boilerplate text, brand colours and print-ready documents from Ferme Agri Lacombe, for grocers, media and partners.",
+    "intro": "Everything you need to present Ferme Agri Lacombe: our logos for print and web, our descriptions, our colours and print-ready documents. Grocers, media and partners: help yourselves!",
+    "downloadAll": "Download the complete kit",
+    "nav": {
+      "logos": "Logos",
+      "texts": "Texts",
+      "colours": "Colours",
+      "seasons": "Seasons",
+      "print": "Print",
+      "social": "Social media",
+      "rules": "Usage",
+      "contact": "Contact"
+    },
+    "logos": {
+      "title": "Logos",
+      "name": "Logo",
+      "lead": "Our official logo, as PNG files.",
+      "variants": {
+        "original": "Original",
+        "transparent": "Transparent background",
+        "nb": "Black and white"
+      },
+      "variantUse": {
+        "original": "The original file, on its cream background.",
+        "transparent": "Without the cream background, for documents and white or light backgrounds.",
+        "nb": "For black printing, on white or light backgrounds."
+      }
+    },
+    "texts": {
+      "title": "Descriptions",
+      "lead": "Ready to copy and paste. Please check with us before changing them.",
+      "oneLineLabel": "One sentence",
+      "oneLine": "Ferme Agri Lacombe is a family farm in Saint-Mathias-sur-Richelieu, in Quebec’s Montérégie region, that grows onions, garlic, asparagus and pumpkins.",
+      "shortLabel": "Short description",
+      "short": "Ferme Agri Lacombe is a local, family-run producer in Saint-Mathias-sur-Richelieu, in Quebec’s Montérégie region. We grow a range of fresh vegetables through the seasons: Spanish onions, red onions, garlic, pumpkins, asparagus… with more to come!",
+      "longLabel": "Long description",
+      "long": "Based in Saint-Mathias-sur-Richelieu, in Quebec’s Montérégie region, Ferme Agri Lacombe is a family farm. We grow Spanish onions, red onions, garlic, asparagus and pumpkins, which we harvest and store on the farm. We also offer camping firewood from April to November. New crops join the line-up every season.",
+      "copy": "Copy",
+      "copied": "Copied!"
+    },
+    "pitch": {
+      "title": "Why Agri Lacombe",
+      "headline": "Fresh local vegetables, grown for you.",
+      "elevator": "Agri Lacombe is a family farm in Saint-Mathias-sur-Richelieu, in Quebec’s Montérégie region, about 40 km from Montreal. We grow onions, garlic, asparagus and pumpkins.",
+      "points": [
+        {
+          "title": "Grown here, by us",
+          "text": "Our vegetables come from our own fields in Saint-Mathias-sur-Richelieu."
+        },
+        {
+          "title": "Close by",
+          "text": "About 40 km from Montreal."
+        },
+        {
+          "title": "A growing farm",
+          "text": "New crops join the line-up every season."
+        }
+      ]
+    },
+    "facts": {
+      "title": "At a glance",
+      "items": [
+        [
+          "Name",
+          "Ferme Agri Lacombe"
+        ],
+        [
+          "Address",
+          "96 chemin de la Rivière-des-Hurons Est, Saint-Mathias-sur-Richelieu, Quebec"
+        ],
+        [
+          "Crops",
+          "Spanish onions, red onions, garlic, asparagus, pumpkins"
+        ],
+        [
+          "Also available",
+          "Camping firewood (April to November)"
+        ]
+      ]
+    },
+    "colours": {
+      "title": "Colours",
+      "lead": "The colours of our logo.",
+      "copyHex": "Copy code"
+    },
+    "seasons": {
+      "title": "Our seasons",
+      "lead": "Approximate availability of our products. It varies with the weather.",
+      "months": [
+        "JAN",
+        "FEB",
+        "MAR",
+        "APR",
+        "MAY",
+        "JUN",
+        "JUL",
+        "AUG",
+        "SEP",
+        "OCT",
+        "NOV",
+        "DEC"
+      ],
+      "legendFresh": "Fresh harvest",
+      "crops": {
+        "asparagus": "Asparagus",
+        "spanishOnion": "Spanish onions",
+        "redOnion": "Red onions",
+        "pumpkin": "Pumpkins",
+        "firewood": "Camping firewood"
+      }
+    },
+    "print": {
+      "title": "Print-ready documents",
+      "lead": "Letter size (8.5 × 11 in), ready for an office printer or a print shop.",
+      "docs": {
+        "fiche": {
+          "name": "Fact sheet",
+          "use": "For buyers and department managers."
+        },
+        "affichette": {
+          "name": "“Local product” sign",
+          "use": "For stores outside Quebec. In Quebec, use the French version."
+        },
+        "guide": {
+          "name": "Brand guide",
+          "use": "Logo and colour rules."
+        }
+      }
+    },
+    "social": {
+      "title": "Social media",
+      "lead": "Follow us and tag us in your posts!",
+      "follow": "See our Facebook page",
+      "assets": "Image ready to upload",
+      "cover": "Facebook cover photo (1640 × 624)"
+    },
+    "rules": {
+      "title": "Logo usage",
+      "do": [
+        "Use the original files from this page",
+        "Keep clear space around the logo (at least the height of the \"A\")",
+        "Place the logo on a white or light background",
+        "Respect the minimum size: 25 mm (1 in) wide"
+      ],
+      "dont": [
+        "Stretch, distort or tilt the logo",
+        "Change the colours or add effects (shadow, outline, gradient)",
+        "Place the colour logo on a busy or dark background",
+        "Redraw or rearrange the logo"
+      ]
+    },
+    "contactBlock": {
+      "title": "Contact",
+      "lead": "For orders, media requests or files in another format:",
+      "email": "Email",
+      "address": "Address"
+    },
+    "usage": "These materials may be used to present or promote Ferme Agri Lacombe products. Any other use requires our written permission.",
+    "sign": {
+      "pill": "LOCAL PRODUCT",
+      "title": "Grown right here",
+      "sub": [
+        "in Saint-Mathias-sur-Richelieu,",
+        "Montérégie, Quebec"
+      ],
+      "desc": [
+        "Fresh vegetables, grown and harvested",
+        "by a local family farm."
+      ]
+    },
+    "guide": {
+      "title": "Brand guide",
+      "subtitle": "Logo and colours",
+      "logoTitle": "Our logo",
+      "logoLead": "Always use the files from the media kit. Do not change or redraw the logo.",
+      "caps": {
+        "original": "the original file",
+        "transparent": "white or light backgrounds",
+        "nb": "black printing"
+      },
+      "zoneTitle": "Clear space",
+      "zoneText": "Keep clear space all around the logo, at least X: the height of the letter “A” in AGRI. No text or images in this area.",
+      "sizesTitle": "Print sizes",
+      "sizes": [
+        [
+          "Minimum",
+          "25 mm",
+          "(1 in) wide"
+        ],
+        [
+          "Maximum",
+          "8 cm",
+          "(3 in) wide, given the current file quality"
+        ]
+      ],
+      "rgb": "RGB",
+      "usageTitle": "Logo usage",
+      "do": "Do",
+      "dont": "Don’t",
+      "bad": [
+        "Stretched",
+        "Recoloured",
+        "On a dark background",
+        "Added effects"
+      ],
+      "footer": "Brand guide, version 1 (September 2026)"
+    },
+    "ficheKicker": "Family farm · Montérégie, Quebec",
+    "share": {
+      "kitLink": "Link to share this kit",
+      "copyLink": "Copy link",
+      "fbLink": "Link to our Facebook page"
+    }
+  },
+  "es": {
+    "slugTitle": "Kit de prensa",
+    "metaTitle": "Kit de prensa — Ferme Agri Lacombe",
+    "metaDescription": "Logotipos, textos de presentación, colores y documentos listos para imprimir de la Ferme Agri Lacombe.",
+    "intro": "Todo lo necesario para presentar la Ferme Agri Lacombe: nuestros logotipos para impresión y web, nuestros textos, nuestros colores y documentos listos para imprimir.",
+    "downloadAll": "Descargar el kit completo",
+    "nav": {
+      "logos": "Logotipos",
+      "texts": "Textos",
+      "colours": "Colores",
+      "seasons": "Temporadas",
+      "print": "Imprimibles",
+      "social": "Redes sociales",
+      "rules": "Uso",
+      "contact": "Contacto"
+    },
+    "logos": {
+      "title": "Logotipos",
+      "name": "Logotipo",
+      "lead": "Nuestro logotipo oficial, en archivos PNG.",
+      "variants": {
+        "original": "Original",
+        "transparent": "Fondo transparente",
+        "nb": "Blanco y negro"
+      },
+      "variantUse": {
+        "original": "El archivo original, sobre su fondo crema.",
+        "transparent": "Sin el fondo crema, para documentos y fondos blancos o claros.",
+        "nb": "Para impresión en negro, sobre fondo blanco o claro."
+      }
+    },
+    "texts": {
+      "title": "Textos de presentación",
+      "lead": "Listos para copiar y pegar.",
+      "oneLineLabel": "En una frase",
+      "oneLine": "La Ferme Agri Lacombe es una granja familiar de Saint-Mathias-sur-Richelieu, en la región de Montérégie (Quebec), que cultiva cebollas, ajo, espárragos y calabazas.",
+      "shortLabel": "Descripción corta",
+      "short": "La Ferme Agri Lacombe es un productor local y familiar ubicado en Saint-Mathias-sur-Richelieu, en Montérégie. Cultivamos verduras frescas a lo largo de las temporadas: cebollas españolas, cebollas rojas, ajo, calabazas, espárragos… ¡y muchas más por venir!",
+      "longLabel": "Descripción larga",
+      "long": "Situada en Saint-Mathias-sur-Richelieu, en Montérégie, la Ferme Agri Lacombe es una granja familiar. Cultivamos cebollas españolas, cebollas rojas, ajo, espárragos y calabazas, que cosechamos y almacenamos en la granja. También ofrecemos leña para acampar, de abril a noviembre. Cada temporada se suman nuevos cultivos.",
+      "copy": "Copiar",
+      "copied": "¡Copiado!"
+    },
+    "pitch": {
+      "title": "Por qué Agri Lacombe",
+      "headline": "Verduras frescas de aquí, cultivadas para usted.",
+      "elevator": "Agri Lacombe es una granja familiar de Saint-Mathias-sur-Richelieu, en Montérégie, a unos 40 km de Montreal. Cultivamos cebollas, ajo, espárragos y calabazas.",
+      "points": [
+        {
+          "title": "Cultivado aquí, por nosotros",
+          "text": "Nuestras verduras vienen de nuestros campos en Saint-Mathias-sur-Richelieu."
+        },
+        {
+          "title": "Muy cerca",
+          "text": "A unos 40 km de Montreal."
+        },
+        {
+          "title": "Una granja que crece",
+          "text": "Cada temporada se suman nuevos cultivos."
+        }
+      ]
+    },
+    "facts": {
+      "title": "En breve",
+      "items": [
+        [
+          "Nombre",
+          "Ferme Agri Lacombe"
+        ],
+        [
+          "Dirección",
+          "96, chemin de la Rivière-des-Hurons Est, Saint-Mathias-sur-Richelieu (Quebec)"
+        ],
+        [
+          "Cultivos",
+          "Cebollas españolas, cebollas rojas, ajo, espárragos, calabazas"
+        ],
+        [
+          "También",
+          "Leña para acampar (abril a noviembre)"
+        ]
+      ]
+    },
+    "colours": {
+      "title": "Colores",
+      "lead": "Los colores de nuestro logotipo.",
+      "copyHex": "Copiar código"
+    },
+    "seasons": {
+      "title": "Nuestras temporadas",
+      "lead": "Disponibilidad aproximada. Varía según el clima.",
+      "months": [
+        "ENE",
+        "FEB",
+        "MAR",
+        "ABR",
+        "MAY",
+        "JUN",
+        "JUL",
+        "AGO",
+        "SEP",
+        "OCT",
+        "NOV",
+        "DIC"
+      ],
+      "legendFresh": "Cosecha fresca",
+      "crops": {
+        "asparagus": "Espárragos",
+        "spanishOnion": "Cebollas españolas",
+        "redOnion": "Cebollas rojas",
+        "pumpkin": "Calabazas",
+        "firewood": "Leña para acampar"
+      }
+    },
+    "print": {
+      "title": "Documentos para imprimir",
+      "lead": "Tamaño carta (8,5 × 11 pulgadas).",
+      "docs": {
+        "fiche": {
+          "name": "Ficha de presentación",
+          "use": "Para compradores y jefes de sección."
+        },
+        "affichette": {
+          "name": "Cartel «Producto local»",
+          "use": "Para tiendas fuera de Quebec. En Quebec, use la versión francesa."
+        },
+        "guide": {
+          "name": "Guía de marca",
+          "use": "Reglas de uso del logotipo y colores."
+        }
+      }
+    },
+    "social": {
+      "title": "Redes sociales",
+      "lead": "¡Síganos y etiquétenos en sus publicaciones!",
+      "follow": "Ver nuestra página de Facebook",
+      "assets": "Imagen lista para subir",
+      "cover": "Foto de portada de Facebook (1640 × 624)"
+    },
+    "rules": {
+      "title": "Uso del logotipo",
+      "do": [
+        "Usar los archivos originales de esta página",
+        "Dejar espacio libre alrededor del logotipo",
+        "Colocar el logotipo sobre un fondo blanco o claro",
+        "Respetar el tamaño mínimo: 25 mm de ancho"
+      ],
+      "dont": [
+        "Estirar, deformar o inclinar el logotipo",
+        "Cambiar los colores o añadir efectos",
+        "Poner el logotipo a color sobre un fondo oscuro o cargado",
+        "Redibujar o recomponer el logotipo"
+      ]
+    },
+    "contactBlock": {
+      "title": "Contacto",
+      "lead": "Para pedidos, prensa o archivos en otro formato:",
+      "email": "Correo",
+      "address": "Dirección"
+    },
+    "usage": "Estos materiales pueden usarse para presentar o promover los productos de la Ferme Agri Lacombe. Cualquier otro uso requiere nuestra autorización por escrito.",
+    "sign": {
+      "pill": "PRODUCTO LOCAL",
+      "title": "Cultivado aquí",
+      "sub": [
+        "en Saint-Mathias-sur-Richelieu,",
+        "Montérégie (Quebec)"
+      ],
+      "desc": [
+        "Verduras frescas, cultivadas y cosechadas",
+        "por una granja familiar local."
+      ]
+    },
+    "guide": {
+      "title": "Guía de marca",
+      "subtitle": "Logotipo y colores",
+      "logoTitle": "Nuestro logotipo",
+      "logoLead": "Use siempre los archivos del kit de prensa. No modifique ni redibuje el logotipo.",
+      "caps": {
+        "original": "el archivo original",
+        "transparent": "fondos blancos o claros",
+        "nb": "impresión en negro"
+      },
+      "zoneTitle": "Espacio de protección",
+      "zoneText": "Deje un espacio libre alrededor del logotipo, al menos igual a X, la altura de la letra «A» de AGRI. Sin textos ni imágenes en esta zona.",
+      "sizesTitle": "Tamaños de impresión",
+      "sizes": [
+        [
+          "Mínimo",
+          "25 mm",
+          "de ancho"
+        ],
+        [
+          "Máximo",
+          "8 cm",
+          "de ancho, según la calidad del archivo actual"
+        ]
+      ],
+      "rgb": "RGB",
+      "usageTitle": "Uso del logotipo",
+      "do": "Sí",
+      "dont": "No",
+      "bad": [
+        "Estirado",
+        "Colores modificados",
+        "Sobre fondo oscuro",
+        "Efectos añadidos"
+      ],
+      "footer": "Guía de marca, versión 1 (septiembre de 2026)"
+    },
+    "ficheKicker": "Granja familiar · Montérégie, Quebec",
+    "share": {
+      "kitLink": "Enlace para compartir este kit",
+      "copyLink": "Copiar el enlace",
+      "fbLink": "Enlace de nuestra página de Facebook"
+    }
+  }
+}
