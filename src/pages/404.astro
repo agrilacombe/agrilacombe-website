@@ -1,0 +1,40 @@
+---
+// src/pages/404.astro — GitHub Pages serves dist/404.html for any unknown URL.
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const siteBase = import.meta.env.BASE_URL;
+const selfURL = new URL('/404.html', Astro.site ?? 'https://www.agrilacombe.com').toString();
+const others = [
+  { lang: 'en', text: 'Page not found.', link: 'Back to home', href: '/en/' },
+  { lang: 'es', text: 'Página no encontrada.', link: 'Volver al inicio', href: '/es/' },
+];
+---
+<BaseLayout
+  title="Page introuvable — Ferme Agri Lacombe"
+  description="Cette page n’existe pas."
+  lang="fr"
+  currentPath={Astro.url.pathname}
+  siteBase={siteBase}
+  canonicalURL={selfURL}
+>
+  <meta slot="head" name="robots" content="noindex" />
+  <section class="min-h-[70vh] flex items-center">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
+      <img src="/media-kit/logos/AgriLacombe_Logo_fond-transparent.png" alt="Ferme Agri Lacombe" class="mx-auto w-48 sm:w-56" />
+      <p class="mt-8 text-sm font-bold tracking-[.2em] uppercase text-[#8A9A45]">Erreur 404</p>
+      <h1 class="mt-2 text-3xl sm:text-4xl font-bold text-[#1E3A1B]">Page introuvable</h1>
+      <p class="mt-4 text-lg text-gray-600">La page que vous cherchez n’existe pas ou a été déplacée.</p>
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <a href="/fr/" class="rounded-lg bg-[#1E3A1B] px-6 py-3 font-semibold text-white hover:bg-[#2c5228] transition-colors">Retour à l’accueil</a>
+        <a href="/fr/media/" class="rounded-lg border border-[#1E3A1B]/30 bg-white px-6 py-3 font-semibold text-[#1E3A1B] hover:bg-[#1E3A1B]/5 transition-colors">Trousse média</a>
+      </div>
+      <p class="mt-10 text-sm text-gray-500">
+        {others.map((o, i) => (
+          <span lang={o.lang}>
+            {i > 0 && ' · '}{o.text} <a href={o.href} class="underline underline-offset-2 hover:text-[#1E3A1B]">{o.link}</a>
+          </span>
+        ))}
+      </p>
+    </div>
+  </section>
+</BaseLayout>

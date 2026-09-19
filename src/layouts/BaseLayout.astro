@@ -3,6 +3,7 @@
 import { t, createLocalizedPath, getLocalizedPathForSwitcher } from '../utils/i18n';
 import type { Language } from '../utils/i18n';
 import { Icon } from 'astro-icon/components'; // For menu icon
+import '../styles/global.css'; // bundled by Astro (a <link> to /src/... 404s in production)
 
 export interface Props {
   title: string;
@@ -65,6 +66,15 @@ const navLinks = [
   // { key: 'nav.faq', pagePath: 'faq', anchor: '', isHomepageSection: false },
 ];
 
+
+// The story, products and contact sections only exist on the home page, so every
+// other page (e.g. the media kit) links to the home page's anchors.
+function navHref(link: (typeof navLinks)[number]): string {
+  if (link.isHomepageSection && link.anchor) {
+    return isEffectivelyHomepage ? link.anchor : `${homePathForLang}${link.anchor}`;
+  }
+  return createLocalizedPath(link.pagePath, lang, siteBase);
+}
 ---
 <!DOCTYPE html>
 <html lang={lang} class="scroll-smooth">
@@ -98,7 +108,6 @@ const navLinks = [
   {/* Favicons - Assuming these are in public/images/ */}
   <link rel="icon" href="/images/agrilacombe_logo.png" sizes="any"> {/* Fallback for older browsers */}
 
-  <link rel="stylesheet" href="/src/styles/global.css">
 
   {/* Structured Data (JSON-LD) for SEO */}
   <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
@@ -123,7 +132,7 @@ const navLinks = [
             {navLinks.map(link => {
               const pageLink = createLocalizedPath(link.pagePath, lang, siteBase);
               // If on homepage AND this link is primarily a homepage section, use anchor. Otherwise, use page path.
-              const href = isEffectivelyHomepage && link.isHomepageSection && link.anchor ? link.anchor : pageLink;
+              const href = navHref(link);
               // Active state: Check if current path matches the full page path for this link.
               // For "Home", active if it's the effective homepage.
               const isActive = (link.key === 'nav.home' && isEffectivelyHomepage) || currentPath === pageLink;
@@ -172,7 +181,7 @@ const navLinks = [
       <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200 shadow-lg">
         {navLinks.map(link => {
           const pageLink = createLocalizedPath(link.pagePath, lang, siteBase);
-          const href = isEffectivelyHomepage && link.isHomepageSection && link.anchor ? link.anchor : pageLink;
+          const href = navHref(link);
           const isActive = (link.key === 'nav.home' && isEffectivelyHomepage) || currentPath === pageLink;
           return (
             <a

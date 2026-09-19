@@ -8,7 +8,7 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   integrations: [
     mdx(), // Add MDX integration, preferably early
-    tailwind(),
+    tailwind({ applyBaseStyles: false }), // src/styles/global.css holds the @tailwind directives
     icon({
       // Example: include Tabler Icons if you plan to use them
       // You can specify icon packs and individual icons to optimize build size
