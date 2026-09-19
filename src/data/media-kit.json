@@ -4,19 +4,10 @@
     "web": "agrilacombe.com",
     "facebook": "https://www.facebook.com/people/Ferme-Agri-Lacombe/61593134068769/",
     "facebookName": "Ferme Agri Lacombe",
-    "address": {
-      "fr": [
-        "96, chemin de la Rivière-des-Hurons Est",
-        "Saint-Mathias-sur-Richelieu (Québec) J3L 7E3"
-      ],
-      "en": [
-        "96 chemin de la Rivière-des-Hurons Est",
-        "Saint-Mathias-sur-Richelieu, Quebec J3L 7E3"
-      ],
-      "es": [
-        "96, chemin de la Rivière-des-Hurons Est",
-        "Saint-Mathias-sur-Richelieu (Quebec) J3L 7E3"
-      ]
+    "location": {
+      "fr": "Saint-Mathias-sur-Richelieu (Québec)",
+      "en": "Saint-Mathias-sur-Richelieu, Quebec",
+      "es": "Saint-Mathias-sur-Richelieu (Quebec)"
     }
   },
   "seasons": [
@@ -135,8 +126,8 @@
           "Ferme Agri Lacombe"
         ],
         [
-          "Adresse",
-          "96, chemin de la Rivière-des-Hurons Est, Saint-Mathias-sur-Richelieu (Québec) J3L 7E3"
+          "Lieu",
+          "Saint-Mathias-sur-Richelieu (Québec)"
         ],
         [
           "Cultures",
@@ -223,7 +214,7 @@
       "title": "Contact",
       "lead": "Pour les commandes, les demandes de médias ou des fichiers dans un autre format :",
       "email": "Courriel",
-      "address": "Adresse"
+      "location": "Lieu"
     },
     "usage": "Ces éléments peuvent être utilisés pour présenter ou promouvoir les produits de la Ferme Agri Lacombe. Toute autre utilisation demande notre accord écrit.",
     "sign": {
@@ -352,8 +343,8 @@
           "Ferme Agri Lacombe"
         ],
         [
-          "Address",
-          "96 chemin de la Rivière-des-Hurons Est, Saint-Mathias-sur-Richelieu, Quebec J3L 7E3"
+          "Location",
+          "Saint-Mathias-sur-Richelieu, Quebec"
         ],
         [
           "Crops",
@@ -440,7 +431,7 @@
       "title": "Contact",
       "lead": "For orders, media requests or files in another format:",
       "email": "Email",
-      "address": "Address"
+      "location": "Location"
     },
     "usage": "These materials may be used to present or promote Ferme Agri Lacombe products. Any other use requires our written permission.",
     "sign": {
@@ -569,8 +560,8 @@
           "Ferme Agri Lacombe"
         ],
         [
-          "Dirección",
-          "96, chemin de la Rivière-des-Hurons Est, Saint-Mathias-sur-Richelieu (Quebec) J3L 7E3"
+          "Ubicación",
+          "Saint-Mathias-sur-Richelieu (Quebec)"
         ],
         [
           "Cultivos",
@@ -657,7 +648,7 @@
       "title": "Contacto",
       "lead": "Para pedidos, prensa o archivos en otro formato:",
       "email": "Correo",
-      "address": "Dirección"
+      "location": "Ubicación"
     },
     "usage": "Estos materiales pueden usarse para presentar o promover los productos de la Ferme Agri Lacombe. Cualquier otro uso requiere nuestra autorización por escrito.",
     "sign": {

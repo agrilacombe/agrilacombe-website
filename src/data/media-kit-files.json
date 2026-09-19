@@ -98,7 +98,7 @@
   ],
   "zip": {
     "path": "/media-kit/AgriLacombe_Trousse-media.zip",
-    "size": 13884765
+    "size": 13877547
   },
   "logos": {
     "original": {
@@ -118,12 +118,12 @@
     "fr": {
       "fiche": {
         "path": "/media-kit/documents/AgriLacombe_Fiche-presentation_FR.pdf",
-        "size": 745677,
+        "size": 743791,
         "preview": "/media-kit/previews/AgriLacombe_Fiche-presentation_FR.png"
       },
       "affichette": {
         "path": "/media-kit/documents/AgriLacombe_Affichette-produit-local_FR.pdf",
-        "size": 696458,
+        "size": 695464,
         "preview": "/media-kit/previews/AgriLacombe_Affichette-produit-local_FR.png"
       },
       "guide": {
@@ -135,12 +135,12 @@
     "en": {
       "fiche": {
         "path": "/media-kit/documents/AgriLacombe_Fact-sheet_EN.pdf",
-        "size": 745696,
+        "size": 743959,
         "preview": "/media-kit/previews/AgriLacombe_Fact-sheet_EN.png"
       },
       "affichette": {
         "path": "/media-kit/documents/AgriLacombe_Local-product-sign_EN.pdf",
-        "size": 695675,
+        "size": 694701,
         "preview": "/media-kit/previews/AgriLacombe_Local-product-sign_EN.png"
       },
       "guide": {
@@ -152,12 +152,12 @@
     "es": {
       "fiche": {
         "path": "/media-kit/documents/AgriLacombe_Ficha-presentacion_ES.pdf",
-        "size": 745629,
+        "size": 743757,
         "preview": "/media-kit/previews/AgriLacombe_Ficha-presentacion_ES.png"
       },
       "affichette": {
         "path": "/media-kit/documents/AgriLacombe_Cartel-producto-local_ES.pdf",
-        "size": 696247,
+        "size": 695259,
         "preview": "/media-kit/previews/AgriLacombe_Cartel-producto-local_ES.png"
       },
       "guide": {
@@ -176,15 +176,15 @@
   "texts": {
     "AgriLacombe_Textes_EN": {
       "path": "/media-kit/textes/AgriLacombe_Textes_EN.txt",
-      "size": 1849
+      "size": 1753
     },
     "AgriLacombe_Textes_ES": {
       "path": "/media-kit/textes/AgriLacombe_Textes_ES.txt",
-      "size": 1942
+      "size": 1843
     },
     "AgriLacombe_Textes_FR": {
       "path": "/media-kit/textes/AgriLacombe_Textes_FR.txt",
-      "size": 2055
+      "size": 1953
     }
   }
 }

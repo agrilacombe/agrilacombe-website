@@ -89,8 +89,8 @@ def contact_line(lang):
     return [f"{t['email']}{colon(lang)}{c['email']}", c["web"], f"Facebook{colon(lang)}{c['facebookName']}"]
 
 
-def address(lang):
-    return DATA["contact"]["address"][lang]
+def location(lang):
+    return DATA["contact"]["location"][lang]
 
 
 def seasons_table(lang):
@@ -177,7 +177,7 @@ def fiche(lang):
         <div><h2>{e(d['facts']['title'])}</h2><dl>{facts}</dl></div>
       </div>
       <div class="seas"><h2>{e(d['seasons']['title'])}</h2>{seasons_table(lang)}</div>
-      <div class="foot"><div class="n"><b>Ferme Agri Lacombe</b>{"".join(f"<span>{e(x)}</span>" for x in address(lang))}</div>
+      <div class="foot"><div class="n"><b>Ferme Agri Lacombe</b><span>{e(location(lang))}</span></div>
         <div class="c">{contacts}</div></div>
     </div>"""
     return css, body
@@ -214,7 +214,7 @@ def affichette(lang):
           <p class="desc">{"<br>".join(map(e, t['desc']))}</p>
         </div>
       </div>
-      <div class="foot"><div class="n">Ferme Agri Lacombe<span>{e(", ".join(address(lang)))}</span></div>
+      <div class="foot"><div class="n">Ferme Agri Lacombe<span>{e(location(lang))}</span></div>
         <div class="c">{e(DATA['contact']['web'])}<br>Facebook{colon(lang)}{e(DATA['contact']['facebookName'])}</div></div>
     </div>"""
     return css, body
@@ -388,7 +388,7 @@ def texts(lang):
     lines += [d["facts"]["title"].upper(), "-" * len(d["facts"]["title"])]
     lines += [f"{k} : {v}" if lang == "fr" else f"{k}: {v}" for k, v in d["facts"]["items"]] + [""]
     lines += [d["contactBlock"]["title"].upper(), "-" * len(d["contactBlock"]["title"])]
-    lines += address(lang) + contact_line(lang) + [c["facebook"], ""]
+    lines += [location(lang)] + contact_line(lang) + [c["facebook"], ""]
     dst = OUT / "textes" / f"AgriLacombe_Textes_{lang.upper()}.txt"
     dst.parent.mkdir(parents=True, exist_ok=True)
     dst.write_text("\n".join(lines))
