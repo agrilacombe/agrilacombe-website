@@ -98,7 +98,7 @@
   ],
   "zip": {
     "path": "/media-kit/AgriLacombe_Trousse-media.zip",
-    "size": 13877547
+    "size": 13894858
   },
   "logos": {
     "original": {
@@ -118,7 +118,7 @@
     "fr": {
       "fiche": {
         "path": "/media-kit/documents/AgriLacombe_Fiche-presentation_FR.pdf",
-        "size": 743791,
+        "size": 754647,
         "preview": "/media-kit/previews/AgriLacombe_Fiche-presentation_FR.png"
       },
       "affichette": {
@@ -135,7 +135,7 @@
     "en": {
       "fiche": {
         "path": "/media-kit/documents/AgriLacombe_Fact-sheet_EN.pdf",
-        "size": 743959,
+        "size": 754959,
         "preview": "/media-kit/previews/AgriLacombe_Fact-sheet_EN.png"
       },
       "affichette": {
@@ -152,7 +152,7 @@
     "es": {
       "fiche": {
         "path": "/media-kit/documents/AgriLacombe_Ficha-presentacion_ES.pdf",
-        "size": 743757,
+        "size": 754864,
         "preview": "/media-kit/previews/AgriLacombe_Ficha-presentacion_ES.png"
       },
       "affichette": {
@@ -176,15 +176,15 @@
   "texts": {
     "AgriLacombe_Textes_EN": {
       "path": "/media-kit/textes/AgriLacombe_Textes_EN.txt",
-      "size": 1753
+      "size": 1816
     },
     "AgriLacombe_Textes_ES": {
       "path": "/media-kit/textes/AgriLacombe_Textes_ES.txt",
-      "size": 1843
+      "size": 1911
     },
     "AgriLacombe_Textes_FR": {
       "path": "/media-kit/textes/AgriLacombe_Textes_FR.txt",
-      "size": 1953
+      "size": 2025
     }
   }
 }

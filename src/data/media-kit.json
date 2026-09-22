@@ -35,6 +35,24 @@
       ]
     },
     {
+      "key": "garlic",
+      "months": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "key": "garlicScape",
+      "months": [
+        6,
+        7
+      ]
+    },
+    {
       "key": "pumpkin",
       "months": [
         9,
@@ -93,9 +111,9 @@
       "oneLineLabel": "En une phrase",
       "oneLine": "La Ferme Agri Lacombe est une ferme familiale de Saint-Mathias-sur-Richelieu, en Montérégie, qui cultive des oignons, de l’ail, des asperges et des citrouilles.",
       "shortLabel": "Description courte",
-      "short": "La Ferme Agri Lacombe est un producteur local et familial situé à Saint-Mathias-sur-Richelieu, en Montérégie. Plusieurs légumes frais y sont cultivés au fil des saisons : oignons espagnols, oignons rouges, ail, citrouilles, asperges… et plusieurs autres à venir!",
+      "short": "La Ferme Agri Lacombe est un producteur local et familial situé à Saint-Mathias-sur-Richelieu, en Montérégie. Plusieurs légumes frais y sont cultivés au fil des saisons : oignons espagnols, oignons rouges, ail Music, fleurs d’ail, citrouilles, asperges… et plusieurs autres à venir!",
       "longLabel": "Description longue",
-      "long": "Installée à Saint-Mathias-sur-Richelieu, en Montérégie, la Ferme Agri Lacombe est une ferme familiale. Nous cultivons des oignons espagnols, des oignons rouges, de l’ail, des asperges et des citrouilles, que nous récoltons et entreposons à la ferme. Nous offrons aussi du bois de camping, d’avril à novembre. De nouvelles cultures s’ajoutent chaque saison.",
+      "long": "Installée à Saint-Mathias-sur-Richelieu, en Montérégie, la Ferme Agri Lacombe est une ferme familiale. Nous cultivons des oignons espagnols, des oignons rouges, de l’ail Music et ses fleurs d’ail, des asperges et des citrouilles, que nous récoltons et entreposons à la ferme. Nous offrons aussi du bois de camping, d’avril à novembre. De nouvelles cultures s’ajoutent chaque saison.",
       "copy": "Copier",
       "copied": "Copié!"
     },
@@ -131,7 +149,7 @@
         ],
         [
           "Cultures",
-          "Oignons espagnols, oignons rouges, ail, asperges, citrouilles"
+          "Oignons espagnols, oignons rouges, ail Music, fleurs d’ail, asperges, citrouilles"
         ],
         [
           "Aussi offert",
@@ -166,6 +184,8 @@
         "asparagus": "Asperges",
         "spanishOnion": "Oignons espagnols",
         "redOnion": "Oignons rouges",
+        "garlic": "Ail Music",
+        "garlicScape": "Fleurs d’ail",
         "pumpkin": "Citrouilles",
         "firewood": "Bois de camping"
       }
@@ -310,9 +330,9 @@
       "oneLineLabel": "One sentence",
       "oneLine": "Ferme Agri Lacombe is a family farm in Saint-Mathias-sur-Richelieu, in Quebec’s Montérégie region, that grows onions, garlic, asparagus and pumpkins.",
       "shortLabel": "Short description",
-      "short": "Ferme Agri Lacombe is a local, family-run producer in Saint-Mathias-sur-Richelieu, in Quebec’s Montérégie region. We grow a range of fresh vegetables through the seasons: Spanish onions, red onions, garlic, pumpkins, asparagus… with more to come!",
+      "short": "Ferme Agri Lacombe is a local, family-run producer in Saint-Mathias-sur-Richelieu, in Quebec’s Montérégie region. We grow a range of fresh vegetables through the seasons: Spanish onions, red onions, Music garlic, garlic scapes, pumpkins, asparagus… with more to come!",
       "longLabel": "Long description",
-      "long": "Based in Saint-Mathias-sur-Richelieu, in Quebec’s Montérégie region, Ferme Agri Lacombe is a family farm. We grow Spanish onions, red onions, garlic, asparagus and pumpkins, which we harvest and store on the farm. We also offer camping firewood from April to November. New crops join the line-up every season.",
+      "long": "Based in Saint-Mathias-sur-Richelieu, in Quebec’s Montérégie region, Ferme Agri Lacombe is a family farm. We grow Spanish onions, red onions, Music garlic and its scapes, asparagus and pumpkins, which we harvest and store on the farm. We also offer camping firewood from April to November. New crops join the line-up every season.",
       "copy": "Copy",
       "copied": "Copied!"
     },
@@ -348,7 +368,7 @@
         ],
         [
           "Crops",
-          "Spanish onions, red onions, garlic, asparagus, pumpkins"
+          "Spanish onions, red onions, Music garlic, garlic scapes, asparagus, pumpkins"
         ],
         [
           "Also available",
@@ -383,6 +403,8 @@
         "asparagus": "Asparagus",
         "spanishOnion": "Spanish onions",
         "redOnion": "Red onions",
+        "garlic": "Music garlic",
+        "garlicScape": "Garlic scapes",
         "pumpkin": "Pumpkins",
         "firewood": "Camping firewood"
       }
@@ -527,9 +549,9 @@
       "oneLineLabel": "En una frase",
       "oneLine": "La Ferme Agri Lacombe es una granja familiar de Saint-Mathias-sur-Richelieu, en la región de Montérégie (Quebec), que cultiva cebollas, ajo, espárragos y calabazas.",
       "shortLabel": "Descripción corta",
-      "short": "La Ferme Agri Lacombe es un productor local y familiar ubicado en Saint-Mathias-sur-Richelieu, en Montérégie. Cultivamos verduras frescas a lo largo de las temporadas: cebollas españolas, cebollas rojas, ajo, calabazas, espárragos… ¡y muchas más por venir!",
+      "short": "La Ferme Agri Lacombe es un productor local y familiar ubicado en Saint-Mathias-sur-Richelieu, en Montérégie. Cultivamos verduras frescas a lo largo de las temporadas: cebollas españolas, cebollas rojas, ajo Music, flores de ajo, calabazas, espárragos… ¡y muchas más por venir!",
       "longLabel": "Descripción larga",
-      "long": "Situada en Saint-Mathias-sur-Richelieu, en Montérégie, la Ferme Agri Lacombe es una granja familiar. Cultivamos cebollas españolas, cebollas rojas, ajo, espárragos y calabazas, que cosechamos y almacenamos en la granja. También ofrecemos leña para acampar, de abril a noviembre. Cada temporada se suman nuevos cultivos.",
+      "long": "Situada en Saint-Mathias-sur-Richelieu, en Montérégie, la Ferme Agri Lacombe es una granja familiar. Cultivamos cebollas españolas, cebollas rojas, ajo Music y sus flores de ajo, espárragos y calabazas, que cosechamos y almacenamos en la granja. También ofrecemos leña para acampar, de abril a noviembre. Cada temporada se suman nuevos cultivos.",
       "copy": "Copiar",
       "copied": "¡Copiado!"
     },
@@ -565,7 +587,7 @@
         ],
         [
           "Cultivos",
-          "Cebollas españolas, cebollas rojas, ajo, espárragos, calabazas"
+          "Cebollas españolas, cebollas rojas, ajo Music, flores de ajo, espárragos, calabazas"
         ],
         [
           "También",
@@ -600,6 +622,8 @@
         "asparagus": "Espárragos",
         "spanishOnion": "Cebollas españolas",
         "redOnion": "Cebollas rojas",
+        "garlic": "Ajo Music",
+        "garlicScape": "Flores de ajo",
         "pumpkin": "Calabazas",
         "firewood": "Leña para acampar"
       }
