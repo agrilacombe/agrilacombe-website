@@ -1,10 +1,10 @@
 ---
 // src/pages/[lang]/index.astro
-import { getEntry } from 'astro:content';
+import { getEntry, render } from 'astro:content';
 import type { Language } from '../../utils/i18n';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { t, createLocalizedPath } from '../../utils/i18n';
-import { Icon } from 'astro-icon/components';
+import Icon from '../../components/Icon.astro';
 
 export async function getStaticPaths() {
   const languages: Language[] = ['en', 'es', 'fr'];
@@ -25,7 +25,7 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 
 const currentLang = Astro.params.lang as Language;
 const frontmatter = entry.data;

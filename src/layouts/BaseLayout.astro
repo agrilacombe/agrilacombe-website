@@ -2,7 +2,7 @@
 // src/layouts/BaseLayout.astro
 import { t, createLocalizedPath, getLocalizedPathForSwitcher } from '../utils/i18n';
 import type { Language } from '../utils/i18n';
-import { Icon } from 'astro-icon/components'; // For menu icon
+import Icon from '../components/Icon.astro'; // For menu icon
 import '../styles/global.css'; // bundled by Astro (a <link> to /src/... 404s in production)
 
 export interface Props {
@@ -167,7 +167,6 @@ function navHref(link: (typeof navLinks)[number]): string {
           <div class="-mr-2 flex md:hidden">
             <button type="button" id="mobile-menu-button" class="bg-white inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-green-600 hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500" aria-controls="mobile-menu" aria-expanded="false">
               <span class="sr-only">{t('mobileMenu.open', lang)}</span>
-              {/* Ensure astro-icon integration provides these icons, or use SVGs directly */}
               <Icon name="tabler:menu-2" class="block h-6 w-6 icon-menu" aria-hidden="true" />
               <Icon name="tabler:x" class="hidden h-6 w-6 icon-close" aria-hidden="true" />
             </button>

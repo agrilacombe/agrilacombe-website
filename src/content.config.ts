@@ -1,5 +1,7 @@
-// src/content/config.ts
-import { defineCollection, z } from 'astro:content';
+// src/content.config.ts
+import { defineCollection } from 'astro:content';
+import { glob } from 'astro/loaders';
+import { z } from 'astro/zod';
 
 // Define a common schema for page frontmatter
 const pageSchema = z.object({
@@ -50,17 +52,17 @@ const pageSchema = z.object({
 
 // Define collections for each language
 const enCollection = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/en' }),
   schema: pageSchema,
 });
 
 const esCollection = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/es' }),
   schema: pageSchema,
 });
 
 const frCollection = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/fr' }),
   schema: pageSchema,
 });
 

@@ -1,21 +1,11 @@
 // astro.config.mjs
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
-import tailwind from "@astrojs/tailwind";
-import icon from "astro-icon";
 import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
   integrations: [
     mdx(), // Add MDX integration, preferably early
-    tailwind({ applyBaseStyles: false }), // src/styles/global.css holds the @tailwind directives
-    icon({
-      // Example: include Tabler Icons if you plan to use them
-      // You can specify icon packs and individual icons to optimize build size
-      include: {
-        tabler: ["menu-2", "x", "star", "leaf", "bulb", "users"], // For hamburger menu and commitment icons
-      },
-    }),
     sitemap({
       // Configuration for sitemap
       i18n: {
